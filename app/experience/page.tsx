@@ -1,0 +1,7 @@
+export default function Experience() {
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      <h1 className="text-4xl font-semibold text-gray-800">Coming Soon</h1>
+    </div>
+  );
+}
