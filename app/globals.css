@@ -5,6 +5,11 @@
   --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* Custom radial gradient utility */
+.bg-gradient-radial {
+  background-image: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
 html {
   background-color: #0a0a0a !important;
   min-height: 120vh !important;

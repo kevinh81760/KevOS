@@ -1,56 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
 
 interface TextRevealProps {
-  children: ReactNode;
+  children: React.ReactNode;
   delay?: number;
   duration?: number;
-  direction?: "up" | "down" | "left" | "right";
   className?: string;
+  direction?: "up" | "down";
   skipAnimation?: boolean;
 }
 
-export default function TextReveal({
-  children,
-  delay = 0,
-  duration = 0.4,
-  direction = "up",
+export default function TextReveal({ 
+  children, 
+  delay = 0, 
+  duration = 0.6,
   className = "",
-  skipAnimation = false,
+  direction = "up",
+  skipAnimation = false
 }: TextRevealProps) {
-  // TODO: Implement TextReveal animation logic
-  // This is a placeholder component
+  const initialY = direction === "down" ? "-100%" : "100%";
   
-  const variants = {
-    hidden: {
-      opacity: 0,
-      // TODO: Add direction-based initial position
-    },
-    visible: {
-      opacity: 1,
-      // TODO: Add direction-based final position
-    },
-  };
-
-  if (skipAnimation) {
-    return <div className={className}>{children}</div>;
-  }
-
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={variants}
-      transition={{
-        delay,
-        duration,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      className={className}
-    >
-      {children}
-    </motion.div>
+    <div className={`overflow-hidden ${className}`}>
+      <motion.div
+        initial={{ y: skipAnimation ? 0 : initialY }}
+        animate={{ y: 0 }}
+        transition={skipAnimation ? { duration: 0 } : { 
+          duration, 
+          delay, 
+          ease: [0.22, 1, 0.36, 1] 
+        }}
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 }

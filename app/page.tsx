@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <div className="relative min-h-screen">
       <HeroAnimation />
-      <div className="absolute top-[calc(90vh-2.5in)] left-1/2 -translate-x-1/2 w-full px-6 flex justify-center">
+      <div className="absolute top-[calc(90vh-3in)] left-1/2 -translate-x-1/2 w-full px-6 flex justify-center">
         <GitHubCalendar />
       </div>
       

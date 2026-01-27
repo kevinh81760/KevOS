@@ -29,7 +29,7 @@ export default function HeroAnimation() {
 
   // Determine initial values based on whether animation should play
   const initialProps = shouldAnimate
-    ? { scale: 0.3, top: "45%", y: "-50%" }
+    ? { scale: 0.3, top: "55%", y: "-50%" }
     : { scale: 1, top: "calc(16px + 1in)", y: 0 };
 
   const transitionProps = shouldAnimate
@@ -49,7 +49,7 @@ export default function HeroAnimation() {
         animate={{ scale: 1, top: "calc(16px + 1in)", y: 0 }}
         transition={transitionProps}
       >
-        <TextReveal skipAnimation={!shouldAnimate}>
+        <TextReveal direction="up" duration={0.8} skipAnimation={!shouldAnimate}>
           <h1 className="text-[7.5rem] font-bold text-white uppercase tracking-tight">KEVIN HA</h1>
         </TextReveal>
       </motion.div>

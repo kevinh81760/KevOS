@@ -20,7 +20,7 @@ export default function GitHubCalendar({ className = "" }: GitHubCalendarWrapper
       // Mark animation as played immediately to prevent replay on remount
       hasAnimationPlayed = true;
       
-      // After animation completes (~3.6s = delay 2.8s + duration 0.8s), 
+      // After animation completes (~3.35s = delay 2.55s + duration 0.8s), 
       // ensure flag is set (redundant but safe)
       const timer = setTimeout(() => {
         hasAnimationPlayed = true;
@@ -38,7 +38,7 @@ export default function GitHubCalendar({ className = "" }: GitHubCalendarWrapper
   const transitionProps = shouldAnimate
     ? {
         duration: 0.8,
-        delay: 2.8,
+        delay: 2.55,
         ease: [0.22, 1, 0.36, 1],
       }
     : { duration: 0 };
