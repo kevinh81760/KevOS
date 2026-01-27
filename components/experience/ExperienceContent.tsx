@@ -109,35 +109,35 @@ export default function ExperienceContent({
           >
             <div className="max-w-[1008px] mt-[-2px]">
               {/* Title */}
-              <h2 className="text-4xl font-medium text-white tracking-wide mb-3">
+              <h2 className="text-3xl font-semibold text-white tracking-wide mb-3">
                 {experience.title}
               </h2>
 
               {/* Company and Date */}
-              <p className="text-zinc-400 text-base mb-10">
+              <p className="text-zinc-400 text-base mb-10 font-medium">
                 {experience.company} | {experience.dates}
               </p>
 
               {/* What I Did */}
               <div className="mb-10">
-                <h3 className="text-lg font-medium text-white mb-4">
+                <h3 className="text-lg font-semibold text-white mb-4">
                   What I Did
                 </h3>
-                <p className="text-zinc-300 leading-relaxed text-base">
+                <p className="text-zinc-300 leading-relaxed text-base font-medium">
                   {experience.whatIDid}
                 </p>
               </div>
 
               {/* How I Did It */}
               <div className="mb-10">
-                <h3 className="text-lg font-medium text-white mb-4">
+                <h3 className="text-lg font-semibold text-white mb-4">
                   How I Did It
                 </h3>
                 <ul className="space-y-2.5">
                   {experience.howIDidIt.map((item, index) => (
                     <li
                       key={index}
-                      className="text-zinc-300 leading-relaxed flex items-start text-base"
+                      className="text-zinc-300 leading-relaxed flex items-start text-base font-medium"
                     >
                       <span className="text-white mr-3 mt-0.5">•</span>
                       <span>{item}</span>
@@ -148,14 +148,14 @@ export default function ExperienceContent({
 
               {/* What I Used */}
               <div className="mb-10">
-                <h3 className="text-lg font-medium text-white mb-4">
+                <h3 className="text-lg font-semibold text-white mb-4">
                   What I Used
                 </h3>
                 <ul className="space-y-2.5">
                   {experience.whatIUsed.map((item, index) => (
                     <li
                       key={index}
-                      className="text-zinc-300 leading-relaxed flex items-start text-base"
+                      className="text-zinc-300 leading-relaxed flex items-start text-base font-medium"
                     >
                       <span className="text-white mr-3 mt-0.5">•</span>
                       <span>{item}</span>
@@ -167,7 +167,7 @@ export default function ExperienceContent({
               {/* Reflection */}
               {experience.reflection && (
                 <div className="mt-8 pt-8 border-t border-zinc-800">
-                  <p className="text-zinc-400 italic leading-relaxed">
+                  <p className="text-zinc-400 italic leading-relaxed font-normal">
                     {experience.reflection}
                   </p>
                 </div>
