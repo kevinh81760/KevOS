@@ -15,6 +15,9 @@ export default function NavBar() {
     { label: "ABOUT", href: "/about" },
   ];
 
+  // Normalize pathname for comparison (remove trailing slashes except for root)
+  const normalizedPathname = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
+
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-6 border-b border-neutral-950 bg-black"
@@ -24,7 +27,7 @@ export default function NavBar() {
           <NavItem
             key={item.href}
             href={item.href}
-            active={pathname === item.href}
+            active={normalizedPathname === item.href}
           >
             {item.label}
           </NavItem>

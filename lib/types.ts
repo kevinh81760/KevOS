@@ -36,23 +36,22 @@ export interface Project {
  * Used for displaying professional experience timeline
  */
 export interface Experience {
-  /** Company or organization name */
+  /** Unique identifier for the experience */
+  id: string;
+  /** Company name */
   company: string;
-  /** Job title or role */
-  role: string;
-  /** Employment period */
-  period: {
-    /** Start date (e.g., "Jan 2020" or "2020-01") */
-    start: string;
-    /** End date (e.g., "Dec 2022" or "2022-12"). Use "Present" for current role */
-    end: string;
-  };
-  /** Detailed job description */
-  description: string;
-  /** Array of key achievements or responsibilities */
-  achievements?: string[];
-  /** Technologies or tools used */
-  technologies: string[];
+  /** Job title */
+  title: string;
+  /** Employment dates (e.g., "Jan 2023 - Present") */
+  dates: string;
+  /** High-level description of your role and responsibilities */
+  whatIDid: string;
+  /** List of specific accomplishments and tasks */
+  howIDidIt: string[];
+  /** Technologies, tools, and frameworks used */
+  whatIUsed: string[];
+  /** Personal reflection or key takeaway from the experience */
+  reflection?: string;
 }
 
 /**
