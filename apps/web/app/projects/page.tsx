@@ -13,14 +13,10 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-[calc(100vh-100px)] px-6 pt-[50px] pb-20">
       <div className="max-w-7xl mx-auto ml-[87px] mr-[87px]">
-        <h1 className="text-5xl font-black text-white tracking-tighter mb-12" style={{ fontWeight: 600, letterSpacing: '-0.01em' }}>
-          PROJECTS
-        </h1>
-        
         {/* Two-panel layout */}
         <div className="flex gap-8 h-[calc(100vh-250px)]">
           {/* Left Panel - File Explorer (30-40% width) */}
-          <div className="w-[35%] shrink-0">
+          <div className="w-[35%] shrink-0 -ml-[75px]">
             <ProjectExplorer
               projects={projects}
               selectedProjectId={selectedProjectId}
@@ -29,7 +25,7 @@ export default function ProjectsPage() {
           </div>
 
           {/* Right Panel - Project Details (60-70% width) */}
-          <div className="flex-1">
+          <div className="flex-1 ml-[35px]">
             <ProjectDetails
               project={projects.find((p) => p.id === selectedProjectId) || null}
             />
