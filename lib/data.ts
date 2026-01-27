@@ -1,75 +1,108 @@
 /**
  * Experience Data
- * 
- * This file contains the Experience interface and sample experience data.
+ *
+ * Clean, professional, minimalistic.
  * Types are co-located with data for clean organization.
  */
 
-import { Experience } from "./types";
+import { Experience, Project } from "./types";
 
-/**
- * Sample experience data
- * Replace this with your own work experiences
- */
 export const experiences: Experience[] = [
   {
-    id: '24labs',
-    company: '24Labs',
-    title: 'Product Engineer',
-    dates: 'Jan 2023 - Present',
-    whatIDid: 'Building consumer mobile apps and internal analytics tools as a full-stack developer. Creating end-to-end solutions and driving product impact through fast-paced development, deployment, and iteration cycles.',
+    id: "24labs",
+    company: "24Labs",
+    title: "Product Engineer",
+    dates: "Jul 2025 - Present",
+    whatIDid:
+      "Built and shipped full-stack products, including a consumer travel app and an internal UGC analytics platform, owning implementation from data modeling to UI and deployment.",
     howIDidIt: [
-      'Developed and shipped mobile features using React Native and TypeScript',
-      'Built internal analytics dashboards with real-time data visualization',
-      'Implemented CI/CD pipelines to streamline deployment processes',
-      'Collaborated with product and design teams to iterate on user experience'
+      "Shipped PointPal (web) to 500+ users by building core flows, iterating quickly, and improving reliability over time",
+      "Built Viral Engine (internal) to replace manual UGC tracking with a centralized analytics dashboard used across the company’s SaaS apps",
+      "Designed the backend data model and APIs using Supabase + Firebase to support scalable analytics and user workflows",
+      "Delivered full-stack features end-to-end: database + auth + backend logic + UI, with a focus on maintainability and speed",
     ],
     whatIUsed: [
-      'React Native, TypeScript, Next.js',
-      'Python, FastAPI, PostgreSQL',
-      'AWS (Lambda, S3, CloudWatch)',
-      'Docker, GitHub Actions'
+      "Next.js, TypeScript, React",
+      "Supabase, Firebase (Auth/DB)",
+      "PostgreSQL",
+      "Vercel, GitHub",
     ],
-    reflection: 'This role has taught me the importance of moving fast and iterating based on real user feedback. Building end-to-end solutions has made me a more versatile engineer.'
+    reflection:
+      "This role strengthened my ability to ship end-to-end: define the data model, build the product surface area, and iterate based on real usage.",
   },
   {
-    id: '9m',
-    company: '9m Holdings',
-    title: 'Software Engineer',
-    dates: 'Jun 2022 - Dec 2022',
-    whatIDid: 'Developed and maintained web applications with a focus on performance optimization and user experience. Collaborated with cross-functional teams to deliver high-quality software solutions.',
+    id: "9m-holdings",
+    company: "9m Holdings",
+    title: "Software Engineer",
+    dates: "Nov 2024 - Apr 2025",
+    whatIDid:
+      "Built automation and internal tools for small businesses, focusing on reducing manual work and improving operational efficiency through workflow automation and mobile software.",
     howIDidIt: [
-      'Optimized frontend performance reducing load times by 40%',
-      'Implemented responsive designs across multiple device breakpoints',
-      'Refactored legacy codebase to modern React patterns',
-      'Conducted code reviews and mentored junior developers'
+      "Built a bookkeeping automation that used computer vision to extract data from receipts/documents and automatically populated Google Sheets",
+      "Improved restaurant bookkeeping efficiency by reducing manual entry and standardizing the intake → reconciliation workflow",
+      "Developed a React Native mobile app with Supabase + Firebase-backed services for authentication and data storage",
+      "Deployed cloud infrastructure using AWS services (DynamoDB, S3, EC2) to support storage, compute, and app operations",
     ],
     whatIUsed: [
-      'React, Redux, JavaScript',
-      'Node.js, Express',
-      'MongoDB, Redis',
-      'Webpack, Babel'
+      "React Native, TypeScript",
+      "Supabase, Firebase",
+      "AWS (DynamoDB, S3, EC2)",
+      "Google Sheets integration",
+      "OpenAI (Computer Vision)",
     ],
-    reflection: 'Working at a fast-paced startup taught me how to prioritize effectively and deliver features that matter most to users.'
+    reflection:
+      "Freelance work taught me how to translate messy real-world processes into simple systems that save time and work reliably.",
   },
   {
-    id: 'avp',
-    company: 'AVP Technology',
-    title: 'Frontend Developer',
-    dates: 'Jan 2021 - May 2022',
-    whatIDid: 'Specialized in building responsive and accessible user interfaces. Implemented modern frontend architectures and improved development workflows for the team.',
+    id: "avp-technology",
+    company: "AVP Technology",
+    title: "Software Engineer Intern",
+    dates: "Jun 2024 - Aug 2024",
+    whatIDid:
+      "Developed a .NET-based robotic control interface that communicated with hardware systems over TCP to improve reliability and operator feedback during robotic movement workflows.",
     howIDidIt: [
-      'Built reusable component library with Storybook documentation',
-      'Implemented accessibility features following WCAG 2.1 guidelines',
-      'Set up automated testing with Jest and React Testing Library',
-      'Improved developer experience with TypeScript migration'
+      "Built a C#/.NET interface that established TCP connections to robotic systems and exchanged command/status messages",
+      "Implemented connection handling and error states to reduce failures and improve operational reliability",
+      "Worked with engineers and technicians to validate behavior against real hardware constraints and edge cases",
+      "Improved robotic movement reliability by surfacing actionable feedback and stabilizing the control flow",
     ],
-    whatIUsed: [
-      'React, TypeScript, Styled Components',
-      'Jest, React Testing Library',
-      'Storybook, Figma',
-      'Git, Jira'
-    ],
-    reflection: 'This experience solidified my passion for creating beautiful, accessible user interfaces and the importance of developer tooling.'
-  }
+    whatIUsed: ["C#, .NET", "TCP/IP", "Hardware integration", "Git"],
+    reflection:
+      "This experience sharpened my approach to building software that interfaces with real hardware—where reliability and clarity matter as much as features.",
+  },
+];
+
+/**
+ * Projects Data
+ *
+ * Minimal, clean placeholders (swap images/descriptions as needed).
+ */
+export const projects: Project[] = [
+  {
+    id: "pointpal",
+    name: "pointpal.tsx",
+    description:
+      "A travel points platform that helps users find high-value redemptions and plan trips efficiently (500+ users).",
+    type: "Web Application",
+    image: "/pointpal.png",
+    fileExtension: "tsx",
+  },
+  {
+    id: "viral-engine",
+    name: "viral-engine.tsx",
+    description:
+      "An internal UGC analytics dashboard that replaced manual tracking and standardized reporting across SaaS apps.",
+    type: "Web Application",
+    image: "/viral-engine.png",
+    fileExtension: "tsx",
+  },
+  {
+    id: "bookkeeping-automation",
+    name: "bookkeeping-automation.ts",
+    description:
+      "A computer-vision bookkeeping automation that extracts document data and auto-populates Google Sheets for small businesses.",
+    type: "Automation / AI Tooling",
+    image: "/bookkeeping.png",
+    fileExtension: "ts",
+  },
 ];

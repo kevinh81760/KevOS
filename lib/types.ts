@@ -10,25 +10,18 @@
  * Used for displaying portfolio projects
  */
 export interface Project {
-  /** Project title */
-  title: string;
+  /** Unique identifier for the project */
+  id: string;
+  /** Project name */
+  name: string;
   /** Brief description of the project */
   description: string;
-  /** Optional image URL or path */
-  image?: string;
-  /** Array of technology tags */
-  tags: string[];
-  /** Project links */
-  links: {
-    /** GitHub repository URL */
-    github?: string;
-    /** Live demo URL */
-    demo?: string;
-    /** Any other external link */
-    external?: string;
-  };
-  /** Project completion or publication date */
-  date: string;
+  /** Project type (e.g., "Web Application", "Mobile Application") */
+  type: string;
+  /** Project image URL or path */
+  image: string;
+  /** File extension for display (e.g., "tsx", "js", "ts") */
+  fileExtension: string;
 }
 
 /**
