@@ -9,7 +9,8 @@ export default function SplashScreen() {
   const { setIsLoading } = useLoading();
 
   useEffect(() => {
-    setMounted(true);
+    // Use setTimeout to avoid synchronous setState in effect
+    setTimeout(() => setMounted(true), 0);
   }, []);
 
   useEffect(() => {

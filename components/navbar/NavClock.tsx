@@ -7,7 +7,8 @@ export default function NavClock() {
   const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
-    setMounted(true);
+    // Use setTimeout to avoid synchronous setState in effect
+    setTimeout(() => setMounted(true), 0);
     
     const updateTime = () => {
       const now = new Date();

@@ -1,36 +1,27 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import TextReveal from "./TextReveal";
 import StarIcon from "@/components/icons/StarIcon";
-
-// Module-level flag to track if animation has played in this page session
-// Resets on page reload but persists across component remounts (tab switches)
-let hasAnimationPlayed = false;
+import { useHasAnimationPlayed } from "@/lib/hooks/useHasAnimationPlayed";
 
 export default function HeroAnimation() {
-  const [shouldAnimate] = useState(!hasAnimationPlayed);
+  // Synchronously check sessionStorage before first render
+  const hasPlayed = useHasAnimationPlayed();
+  const shouldAnimate = !hasPlayed;
 
   useEffect(() => {
-    if (shouldAnimate) {
-      // Mark animation as played immediately to prevent replay on remount
-      hasAnimationPlayed = true;
-      
-      // After animation completes (~2.8s = max delay 2.4s + duration 0.4s), 
-      // ensure flag is set (redundant but safe)
-      const timer = setTimeout(() => {
-        hasAnimationPlayed = true;
-      }, 3000);
-
-      return () => clearTimeout(timer);
+    // Mark animation as played in sessionStorage when it starts
+    if (shouldAnimate && typeof window !== 'undefined') {
+      sessionStorage.setItem('hero-animation-played', 'true');
     }
   }, [shouldAnimate]);
 
   // Determine initial values based on whether animation should play
   const initialProps = shouldAnimate
-    ? { scale: 0.3, top: "55%", y: "-50%" }
-    : { scale: 1, top: "calc(16px + 1in)", y: 0 };
+    ? { scale: 0.3, top: "45%", y: "-50%" }
+    : { scale: 1, top: "calc(16px)", y: 0 };
 
   const transitionProps = shouldAnimate
     ? {
@@ -46,14 +37,14 @@ export default function HeroAnimation() {
         className="absolute left-1/2 whitespace-nowrap"
         style={{ x: "-50%" }}
         initial={initialProps}
-        animate={{ scale: 1, top: "calc(16px + 1in)", y: 0 }}
+        animate={{ scale: 1, top: "calc(16px + .25in)", y: 0 }}
         transition={transitionProps}
       >
         <TextReveal direction="up" duration={0.8} skipAnimation={!shouldAnimate}>
           <h1 className="text-[7.5rem] font-bold text-white uppercase tracking-tight">KEVIN HA</h1>
         </TextReveal>
       </motion.div>
-      <div className="absolute top-[calc(7.5rem+16px+2.5rem+2rem+1in)] left-0 w-full flex items-center px-6">
+      <div className="absolute top-[calc(7.5rem+16px+2.5rem+2rem+0.25in)] left-0 w-full flex items-center px-6">
         <TextReveal delay={2.4} duration={0.4} direction="down" className="translate-x-[calc(1in-10px-50px)]" skipAnimation={!shouldAnimate}>
           <span className="text-white text-[38px] font-semibold tracking-wide">Product Engineer</span>
         </TextReveal>

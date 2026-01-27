@@ -95,58 +95,19 @@ export default function ExperienceContent({
     container.scrollTop = 0;
   }, [scrollContainerRef]);
 
-  // Prevent scrolling above the initial position (scrollTop = 0)
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    let rafId: number | null = null;
-    let isChecking = false;
-
-    const checkScroll = () => {
-      if (container.scrollTop < 0) {
-        container.scrollTop = 0;
-      }
-      isChecking = false;
-      rafId = null;
-    };
-
-    const handleScroll = () => {
-      // Clamp scrollTop to minimum of 0
-      if (container.scrollTop < 0) {
-        container.scrollTop = 0;
-      }
-      
-      // Also check on next animation frame
-      if (!isChecking && rafId === null) {
-        isChecking = true;
-        rafId = requestAnimationFrame(checkScroll);
-      }
-    };
-
-    container.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      container.removeEventListener("scroll", handleScroll);
-      if (rafId !== null) {
-        cancelAnimationFrame(rafId);
-      }
-    };
-  }, [scrollContainerRef]);
-
   return (
     <div
       ref={scrollContainerRef}
       className="flex-1 h-full min-h-0 overflow-y-auto scrollbar-hide"
     >
-      <div className="space-y-32 pb-32 pt-12">
+      <div className="space-y-80 pb-32 pt-12 ml-[0.03in]">
         {experiences.map((experience) => (
           <section
             key={experience.id}
             id={experience.id}
             className="scroll-mt-24"
           >
-            <div className="max-w-3xl mt-[-2px]">
+            <div className="max-w-[1008px] mt-[-2px]">
               {/* Title */}
               <h2 className="text-4xl font-medium text-white tracking-wide mb-3">
                 {experience.title}

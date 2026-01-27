@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
 import { Experience } from "@/lib/types";
 
 interface ExperienceSidebarProps {
@@ -29,7 +29,7 @@ export default function ExperienceSidebar({
   const [hasSetInitialPosition, setHasSetInitialPosition] = useState(false);
 
   // Calculate bar position helper function
-  const updateBarPosition = () => {
+  const updateBarPosition = useCallback(() => {
     const activeButton = buttonRefs.current[activeIndex];
     const container = containerRef.current;
     
@@ -41,7 +41,7 @@ export default function ExperienceSidebar({
       const newBarY = buttonCenter - barHeight / 2;
       setBarY(newBarY);
     }
-  };
+  }, [activeIndex, barHeight]);
 
   // Set initial position synchronously before paint (no animation)
   useLayoutEffect(() => {
@@ -53,7 +53,7 @@ export default function ExperienceSidebar({
       }, 0);
       isInitialMount.current = false;
     }
-  }, []);
+  }, [updateBarPosition]);
 
   // Measure actual button positions for accurate alignment on subsequent changes
   useEffect(() => {
@@ -65,7 +65,7 @@ export default function ExperienceSidebar({
     // Update on resize
     window.addEventListener("resize", updateBarPosition);
     return () => window.removeEventListener("resize", updateBarPosition);
-  }, [activeIndex, barHeight]);
+  }, [updateBarPosition]);
 
   return (
     <div className="fixed top-[126px] left-[34px] w-64 pr-8 z-10" ref={containerRef}>
@@ -104,8 +104,8 @@ export default function ExperienceSidebar({
                 onClick={() => onCompanyClick(experience.id)}
                 className={`text-left w-full transition-colors duration-200 text-xl ${
                   activeId === experience.id
-                    ? "text-white font-medium"
-                    : "text-zinc-400 hover:text-zinc-200"
+                    ? "text-white font-semibold"
+                    : "text-zinc-600 hover:text-zinc-400 font-medium"
                 }`}
                 style={{
                   paddingLeft: "16px",

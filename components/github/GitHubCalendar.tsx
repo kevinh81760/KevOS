@@ -1,32 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { GitHubCalendar as GitHubCalendarLib } from "react-github-calendar";
-
-// Module-level flag to track if animation has played in this page session
-// Resets on page reload but persists across component remounts (page navigation)
-let hasAnimationPlayed = false;
+import { useHasAnimationPlayed } from "@/lib/hooks/useHasAnimationPlayed";
 
 interface GitHubCalendarWrapperProps {
   className?: string;
 }
 
 export default function GitHubCalendar({ className = "" }: GitHubCalendarWrapperProps) {
-  const [shouldAnimate] = useState(!hasAnimationPlayed);
+  // Synchronously check sessionStorage before first render
+  const hasPlayed = useHasAnimationPlayed('github-calendar-animation-played');
+  const shouldAnimate = !hasPlayed;
 
   useEffect(() => {
-    if (shouldAnimate) {
-      // Mark animation as played immediately to prevent replay on remount
-      hasAnimationPlayed = true;
-      
-      // After animation completes (~3.35s = delay 2.55s + duration 0.8s), 
-      // ensure flag is set (redundant but safe)
-      const timer = setTimeout(() => {
-        hasAnimationPlayed = true;
-      }, 4000);
-
-      return () => clearTimeout(timer);
+    // Mark animation as played in sessionStorage when it starts
+    if (shouldAnimate && typeof window !== 'undefined') {
+      sessionStorage.setItem('github-calendar-animation-played', 'true');
     }
   }, [shouldAnimate]);
 
