@@ -8,21 +8,6 @@ interface ProjectItemProps {
 }
 
 export default function ProjectItem({ name, fileExtension, isSelected, onClick }: ProjectItemProps) {
-  const getFileIcon = (ext: string) => {
-    const iconMap: Record<string, string> = {
-      tsx: "⚛️",
-      ts: "📘",
-      js: "📜",
-      jsx: "⚛️",
-      py: "🐍",
-      java: "☕",
-      cpp: "⚙️",
-      html: "🌐",
-      css: "🎨",
-    };
-    return iconMap[ext.toLowerCase()] || "📄";
-  };
-
   return (
     <button
       onClick={onClick}
@@ -32,8 +17,7 @@ export default function ProjectItem({ name, fileExtension, isSelected, onClick }
           : "bg-transparent text-white/70 hover:bg-[#1a1a1a] hover:text-white border border-transparent"
       }`}
     >
-      <span className="text-lg">{getFileIcon(fileExtension)}</span>
-      <span className="text-sm font-medium">{name}</span>
+      <span className="text-medium font-semibold">{name}</span>
     </button>
   );
 }

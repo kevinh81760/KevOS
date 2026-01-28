@@ -80,7 +80,7 @@ export const experiences: Experience[] = [
 export const projects: Project[] = [
   {
     id: "pointpal",
-    name: "pointpal.tsx",
+    name: "PointPal.tsx",
     description:
       "A travel points platform that helps users find high-value redemptions and plan trips efficiently (500+ users).",
     type: "Web Application",
@@ -89,7 +89,7 @@ export const projects: Project[] = [
   },
   {
     id: "viral-engine",
-    name: "viral-engine.tsx",
+    name: "ViralEngine.tsx",
     description:
       "An internal UGC analytics dashboard that replaced manual tracking and standardized reporting across SaaS apps.",
     type: "Web Application",
@@ -97,12 +97,12 @@ export const projects: Project[] = [
     fileExtension: "tsx",
   },
   {
-    id: "bookkeeping-automation",
-    name: "bookkeeping-automation.ts",
+    id: "notionclone",
+    name: "Atlas.tsx",
     description:
-      "A computer-vision bookkeeping automation that extracts document data and auto-populates Google Sheets for small businesses.",
-    type: "Automation / AI Tooling",
-    image: "/bookkeeping.png",
-    fileExtension: "ts",
+      "A Notion clone application built with modern web technologies.",
+    type: "Web Application",
+    image: "/notionclone.png",
+    fileExtension: "tsx",
   },
 ];
