@@ -107,7 +107,7 @@ export default function ExperienceContent({
             id={experience.id}
             className="scroll-mt-24"
           >
-            <div className="max-w-[1008px] mt-[-2px]">
+            <div className="max-w-[1025px] mt-[-2px]">
               {/* Title */}
               <h2 className="text-3xl font-semibold text-white tracking-wide mb-3">
                 {experience.title}

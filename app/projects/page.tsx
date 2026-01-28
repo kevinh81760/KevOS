@@ -13,24 +13,25 @@ export default function Projects() {
   const selectedProject = projects.find((p) => p.id === selectedProjectId) || null;
 
   return (
-    <div className="fixed inset-0 top-[80px] overflow-hidden">
-      <div className="h-full max-w-7xl mx-auto">
-        <div className="h-full flex gap-6 px-6">
-          {/* Left Sidebar - Project Explorer */}
-          <div className="w-64 flex-shrink-0 pt-12 h-full flex flex-col">
-            <ProjectExplorer
-              projects={projects}
-              selectedProjectId={selectedProjectId}
-              onSelectProject={setSelectedProjectId}
-            />
-          </div>
+    <>
+      {/* Fixed Left Sidebar - Project Explorer */}
+      <ProjectExplorer
+        projects={projects}
+        selectedProjectId={selectedProjectId}
+        onSelectProject={setSelectedProjectId}
+      />
 
-          {/* Right Content - Project Details */}
-          <div className="flex-1 min-w-0 pt-12 h-full flex flex-col overflow-hidden">
-            <ProjectDetails project={selectedProject} />
+      {/* Page container */}
+      <div className="fixed inset-0 top-[80px] overflow-hidden">
+        <div className="h-full max-w-[1800px] mx-auto">
+          <div className="h-full flex pl-[475px] pr-8">
+            {/* Right Content - Project Details */}
+            <div className="flex-1 min-w-0 pt-12 h-full flex flex-col overflow-hidden">
+              <ProjectDetails project={selectedProject} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

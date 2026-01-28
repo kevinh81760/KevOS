@@ -105,7 +105,7 @@ export default function ExperienceSidebar({
                 className={`text-left w-full transition-colors duration-200 text-xl ${
                   activeId === experience.id
                     ? "text-white font-semibold"
-                    : "text-zinc-600 hover:text-zinc-400 font-medium"
+                    : "text-zinc-600 hover:text-zinc-400 font-bold"
                 }`}
                 style={{
                   paddingLeft: "16px",
