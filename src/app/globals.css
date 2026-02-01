@@ -64,3 +64,53 @@ body::-webkit-scrollbar {
   /* Chrome, Safari, Opera */
   display: none;
 }
+
+/* Glitch effect animations */
+@keyframes glitch-scan {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glitch-distort {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-1px);
+  }
+  75% {
+    transform: translateX(1px);
+  }
+}
+
+/* Digital noise pattern */
+.glitch-noise {
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 1px,
+      rgba(255, 255, 255, 0.02) 1px,
+      rgba(255, 255, 255, 0.02) 2px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 1px,
+      rgba(255, 255, 255, 0.01) 1px,
+      rgba(255, 255, 255, 0.01) 2px
+    );
+  mix-blend-mode: screen;
+}
