@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Experience } from "@/lib/types";
+import { Experience } from "./types";
 
 interface ExperienceContentProps {
   experiences: Experience[];

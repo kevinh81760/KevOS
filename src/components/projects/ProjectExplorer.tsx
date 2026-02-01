@@ -1,7 +1,7 @@
 "use client";
 
 import ProjectItem from "./ProjectItem";
-import { Project } from "@/lib/types";
+import { Project } from "./types";
 
 interface ProjectExplorerProps {
   projects: Project[];

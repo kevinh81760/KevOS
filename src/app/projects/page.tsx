@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { projects } from "@/lib/data";
+import { projects } from "@/components/projects/data";
 import ProjectExplorer from "@/components/projects/ProjectExplorer";
 import ProjectDetails from "@/components/projects/ProjectDetails";
 

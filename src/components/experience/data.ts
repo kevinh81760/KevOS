@@ -5,7 +5,7 @@
  * Types are co-located with data for clean organization.
  */
 
-import { Experience, Project } from "./types";
+import { Experience } from "./types";
 
 export const experiences: Experience[] = [
   {
@@ -17,7 +17,7 @@ export const experiences: Experience[] = [
       "Built and shipped full-stack products, including a consumer travel app and an internal UGC analytics platform, owning implementation from data modeling to UI and deployment.",
     howIDidIt: [
       "Shipped PointPal (web) to 500+ users by building core flows, iterating quickly, and improving reliability over time",
-      "Built Viral Engine (internal) to replace manual UGC tracking with a centralized analytics dashboard used across the company’s SaaS apps",
+      "Built Viral Engine (internal) to replace manual UGC tracking with a centralized analytics dashboard used across the company's SaaS apps",
       "Designed the backend data model and APIs using Supabase + Firebase to support scalable analytics and user workflows",
       "Delivered full-stack features end-to-end: database + auth + backend logic + UI, with a focus on maintainability and speed",
     ],
@@ -69,40 +69,5 @@ export const experiences: Experience[] = [
     whatIUsed: ["C#, .NET", "TCP/IP", "Hardware integration", "Git"],
     reflection:
       "This experience sharpened my approach to building software that interfaces with real hardware—where reliability and clarity matter as much as features.",
-  },
-];
-
-/**
- * Projects Data
- *
- * Minimal, clean placeholders (swap images/descriptions as needed).
- */
-export const projects: Project[] = [
-  {
-    id: "pointpal",
-    name: "PointPal.tsx",
-    description:
-      "A travel points platform that helps users find high-value redemptions and plan trips efficiently (500+ users).",
-    type: "Web Application",
-    image: "/pointpal.png",
-    fileExtension: "tsx",
-  },
-  {
-    id: "viral-engine",
-    name: "ViralEngine.tsx",
-    description:
-      "An internal UGC analytics dashboard that replaced manual tracking and standardized reporting across SaaS apps.",
-    type: "Web Application",
-    image: "/viral-engine.png",
-    fileExtension: "tsx",
-  },
-  {
-    id: "notionclone",
-    name: "Atlas.tsx",
-    description:
-      "A Notion clone application built with modern web technologies.",
-    type: "Web Application",
-    image: "/notionclone.png",
-    fileExtension: "tsx",
   },
 ];

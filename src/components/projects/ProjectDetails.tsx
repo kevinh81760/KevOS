@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Project } from "@/lib/types";
+import { Project } from "./types";
 
 interface ProjectDetailsProps {
   project: Project | null;

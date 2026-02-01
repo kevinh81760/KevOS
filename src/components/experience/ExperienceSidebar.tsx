@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
-import { Experience } from "@/lib/types";
+import { Experience } from "./types";
 
 interface ExperienceSidebarProps {
   experiences: Experience[];

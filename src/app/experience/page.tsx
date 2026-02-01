@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { experiences } from "@/lib/data";
+import { experiences } from "@/components/experience/data";
 import ExperienceSidebar from "@/components/experience/ExperienceSidebar";
 import ExperienceContent from "@/components/experience/ExperienceContent";
 
