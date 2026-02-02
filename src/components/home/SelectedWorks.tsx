@@ -31,21 +31,21 @@ export default function SelectedWorks() {
       </FadeIn>
       
       <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-8 mb-4">
-        {featuredProjects.map((project) => (
+        {featuredProjects.map((project, index) => (
           <FeaturedProjectCard
             key={project.id}
             name={project.name.replace(".tsx", "")}
             description={getProjectDescription(project)}
             image={project.image}
             url={getProjectUrl(project)}
-            delay={0.4}
+            delay={0.4 + index * 0.2}
           />
         ))}
       </div>
 
       {/* See all work link */}
       <FadeIn delay={0} duration={0.5} className="mt-8" scrollTrigger={true}>
-        <Link href="/projects" className="text-white text-lg hover:text-zinc-400 transition-colors">
+        <Link href="/projects" className="text-white text-lg font-medium hover:text-zinc-400 transition-colors">
           See all work →
         </Link>
       </FadeIn>
