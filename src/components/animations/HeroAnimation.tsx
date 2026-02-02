@@ -41,7 +41,7 @@ export default function HeroAnimation() {
         transition={transitionProps}
       >
         <TextReveal direction="up" duration={0.8} skipAnimation={!shouldAnimate}>
-          <h1 className="text-[7.5rem] font-bold text-white uppercase tracking-tight">KEVIN HA</h1>
+          <h1 className="text-[8rem] font-bold text-white uppercase tracking-tight">KEVIN HA</h1>
         </TextReveal>
       </motion.div>
       <div className="absolute top-[calc(7.5rem+16px+2.5rem+2rem+0.25in)] left-0 w-full flex items-center px-6">

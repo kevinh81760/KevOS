@@ -22,7 +22,7 @@ export const projects: Project[] = [
     description:
       "An internal UGC analytics dashboard that replaced manual tracking and standardized reporting across SaaS apps.",
     type: "Web Application",
-    image: "/viral-engine.png",
+    image: "/viralengine.png",
     fileExtension: "tsx",
   },
   {

@@ -14,7 +14,7 @@ export default function NavItem({ href, children, active }: NavItemProps) {
       href={href}
       className={cn(
         tabFadeTransition,
-        "text-medium font-semibold tracking-[0.08em] uppercase text-center px-2 py-2 rounded-full",
+        "text-medium font-semibold tracking-[0.08em] uppercase text-center px-2 py-2",
         active 
           ? "text-white hover:text-white" 
           : "text-zinc-600 hover:text-zinc-400 bg-transparent"

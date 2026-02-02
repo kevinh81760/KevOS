@@ -20,7 +20,7 @@ export default function BookItem({ index, src, title }: BookItemProps) {
 
   return (
     <HoverScale scale={1.02} duration={0.5}>
-      <div className="relative aspect-[2/3] rounded-lg overflow-hidden bg-[#111111] transition-colors">
+      <div className="relative aspect-[2/3] overflow-hidden bg-[#111111] transition-colors">
         {src ? (
           <Image
             src={src}

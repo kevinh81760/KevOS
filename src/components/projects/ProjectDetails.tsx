@@ -19,7 +19,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
   return (
     <div className="h-full flex flex-col min-h-0 overflow-hidden">
       {/* Project Image */}
-      <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-[#111111] mb-6 flex-shrink-0">
+      <div className="relative w-full aspect-video overflow-hidden bg-[#111111] mb-6 flex-shrink-0 ml-[55px]">
         {project.image ? (
           <Image
             src={project.image}
@@ -36,20 +36,20 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
       </div>
 
       {/* Metadata Section */}
-      <div className="flex flex-col gap-4 overflow-y-auto scrollbar-hide flex-1 min-h-0">
+      <div className="flex flex-col gap-4 overflow-y-auto scrollbar-hide flex-1 min-h-0 ml-[55px]">
         <div>
-          <h3 className="text-xs text-white/60 uppercase tracking-wide mb-2">Name</h3>
+          <h3 className="text-medium text-white/60 uppercase tracking-wide mb-2 font-semibold">Name</h3>
           <p className="text-white text-lg font-medium">{project.name}</p>
         </div>
 
         <div>
-          <h3 className="text-xs text-white/60 uppercase tracking-wide mb-2">Description</h3>
-          <p className="text-white/80 text-sm leading-relaxed">{project.description}</p>
+          <h3 className="text-medium text-white/60 uppercase tracking-wide mb-2 font-semibold">Description</h3>
+          <p className="text-white text-lg font-medium leading-relaxed">{project.description}</p>
         </div>
 
         <div>
-          <h3 className="text-xs text-white/60 uppercase tracking-wide mb-2">Type</h3>
-          <p className="text-white/80 text-sm">{project.type}</p>
+          <h3 className="text-medium text-white/60 uppercase tracking-wide mb-2 font-semibold">Github Link</h3>
+          <p className="text-white text-lg font-medium">{project.type}</p>
         </div>
       </div>
     </div>

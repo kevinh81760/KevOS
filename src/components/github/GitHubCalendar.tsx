@@ -60,7 +60,7 @@ export default function GitHubCalendar({ className = "" }: GitHubCalendarWrapper
         `
       }} />
       <motion.div
-        className={`w-full bg-[#111111] border border-[#242424] rounded-lg p-6 md:p-8 lg:p-10 mx-[calc(1in+1.5rem)] ${className}`}
+        className={`w-full bg-[#111111] border border-[#242424] p-6 md:p-8 lg:p-10 mx-[calc(1in+1.5rem)] ${className}`}
         initial={initialProps}
         animate={{ opacity: 1, y: 0 }}
         transition={transitionProps}
