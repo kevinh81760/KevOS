@@ -1,4 +1,4 @@
-import FadeIn from "@/components/animations/FadeIn";
+import BubbleFade from "@/components/animations/BubbleFade";
 import HoverScale from "@/components/animations/HoverScale";
 import Image from "next/image";
 
@@ -38,7 +38,7 @@ export default function FeaturedProjectCard({
   );
 
   return (
-    <FadeIn delay={delay} duration={0.8} scrollTrigger={true}>
+    <BubbleFade delay={delay} duration={1} scrollTrigger={true}>
       <HoverScale scale={1.02} duration={0.5}>
         {url ? (
           <a
@@ -53,6 +53,6 @@ export default function FeaturedProjectCard({
           cardContent
         )}
       </HoverScale>
-    </FadeIn>
+    </BubbleFade>
   );
 }

@@ -1,4 +1,4 @@
-import FadeIn from "@/components/animations/FadeIn";
+import BubbleFade from "@/components/animations/BubbleFade";
 import { projects } from "@/components/projects/data";
 import FeaturedProjectCard from "./FeaturedProjectCard";
 import Link from "next/link";
@@ -24,11 +24,11 @@ export default function SelectedWorks() {
 
   return (
     <section className="min-h-[80vh] flex flex-col items-center justify-center px-6 py-20 pt-60 mt-65">
-      <FadeIn className="text-center mb-24" delay={0} duration={0.8} scrollTrigger={true}>
+      <BubbleFade className="text-center mb-24" delay={0} duration={1} scrollTrigger={true}>
         <h2 className="text-7xl font-black text-white tracking-tighter" style={{ fontWeight: 900, letterSpacing: '-0.05em' }}>
           SELECTED WORKS
         </h2>
-      </FadeIn>
+      </BubbleFade>
       
       <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-8 mb-4">
         {featuredProjects.map((project, index) => (
@@ -38,17 +38,19 @@ export default function SelectedWorks() {
             description={getProjectDescription(project)}
             image={project.image}
             url={getProjectUrl(project)}
-            delay={0.4 + index * 0.2}
+            delay={0.2 + index * 0.15}
           />
         ))}
       </div>
 
       {/* See all work link */}
-      <FadeIn delay={0} duration={0.5} className="mt-8" scrollTrigger={true}>
-        <Link href="/projects" className="text-white text-lg font-medium hover:text-zinc-400 transition-colors">
-          See all work →
-        </Link>
-      </FadeIn>
+      <div className="mt-8">
+        <BubbleFade delay={0.2} duration={1} scrollTrigger={true} scaleFrom={0.98}>
+          <Link href="/projects" className="text-white text-lg font-medium hover:text-zinc-400 transition-colors">
+            See all work →
+          </Link>
+        </BubbleFade>
+      </div>
     </section>
   );
 }

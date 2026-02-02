@@ -26,7 +26,7 @@ export default function AboutIntro() {
           </BubbleFade>
           <BubbleFade delay={0.4} duration={0.7}>
             <p className="text-zinc-100 text-2xl leading-relaxed tracking-wide font-medium">
-              Long drives, quiet viewpoints, and places with a little space to think
+              Photos captured along the way
             </p>
           </BubbleFade>
         </div>
