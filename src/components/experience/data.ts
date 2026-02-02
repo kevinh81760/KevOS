@@ -45,7 +45,6 @@ export const experiences: Experience[] = [
     ],
     whatIUsed: [
       "React Native, TypeScript",
-      "Supabase, Firebase",
       "AWS (DynamoDB, S3, EC2)",
       "Google Sheets integration",
       "OpenAI (Computer Vision)",

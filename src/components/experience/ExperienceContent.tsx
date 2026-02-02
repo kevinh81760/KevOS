@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { Experience } from "./types";
+import BubbleFade from "@/components/animations/BubbleFade";
 
 interface ExperienceContentProps {
   experiences: Experience[];
@@ -109,68 +110,80 @@ export default function ExperienceContent({
           >
             <div className="max-w-[1025px] mt-[-2px]">
               {/* Title */}
-              <h2 className="text-3xl font-semibold text-white tracking-wide mb-3">
-                {experience.title}
-              </h2>
+              <BubbleFade key={`${experience.id}-title`} delay={0.1}>
+                <h2 className="text-3xl font-semibold text-white tracking-wide mb-3">
+                  {experience.title}
+                </h2>
+              </BubbleFade>
 
               {/* Company and Date */}
-              <p className="text-zinc-400 text-base mb-10 font-medium">
-                {experience.company} | {experience.dates}
-              </p>
+              <BubbleFade key={`${experience.id}-company`} delay={0.15}>
+                <p className="text-zinc-400 text-base mb-10 font-medium">
+                  {experience.company} | {experience.dates}
+                </p>
+              </BubbleFade>
 
               {/* What I Did */}
-              <div className="mb-10">
-                <h3 className="text-lg font-semibold text-white mb-4">
-                  What I Did
-                </h3>
-                <p className="text-zinc-300 leading-relaxed text-base font-medium">
-                  {experience.whatIDid}
-                </p>
-              </div>
+              <BubbleFade key={`${experience.id}-what`} delay={0.2}>
+                <div className="mb-10">
+                  <h3 className="text-lg font-semibold text-white mb-4">
+                    What I Did
+                  </h3>
+                  <p className="text-zinc-300 leading-relaxed text-base font-medium">
+                    {experience.whatIDid}
+                  </p>
+                </div>
+              </BubbleFade>
 
               {/* How I Did It */}
-              <div className="mb-10">
-                <h3 className="text-lg font-semibold text-white mb-4">
-                  How I Did It
-                </h3>
-                <ul className="space-y-2.5">
-                  {experience.howIDidIt.map((item, index) => (
-                    <li
-                      key={index}
-                      className="text-zinc-300 leading-relaxed flex items-start text-base font-medium"
-                    >
-                      <span className="text-white mr-3 mt-0.5">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <BubbleFade key={`${experience.id}-how`} delay={0.25}>
+                <div className="mb-10">
+                  <h3 className="text-lg font-semibold text-white mb-4">
+                    How I Did It
+                  </h3>
+                  <ul className="space-y-2.5">
+                    {experience.howIDidIt.map((item, index) => (
+                      <li
+                        key={index}
+                        className="text-zinc-300 leading-relaxed flex items-start text-base font-medium"
+                      >
+                        <span className="text-white mr-3 mt-0.5">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </BubbleFade>
 
               {/* What I Used */}
-              <div className="mb-10">
-                <h3 className="text-lg font-semibold text-white mb-4">
-                  What I Used
-                </h3>
-                <ul className="space-y-2.5">
-                  {experience.whatIUsed.map((item, index) => (
-                    <li
-                      key={index}
-                      className="text-zinc-300 leading-relaxed flex items-start text-base font-medium"
-                    >
-                      <span className="text-white mr-3 mt-0.5">•</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <BubbleFade key={`${experience.id}-used`} delay={0.3}>
+                <div className="mb-10">
+                  <h3 className="text-lg font-semibold text-white mb-4">
+                    What I Used
+                  </h3>
+                  <ul className="space-y-2.5">
+                    {experience.whatIUsed.map((item, index) => (
+                      <li
+                        key={index}
+                        className="text-zinc-300 leading-relaxed flex items-start text-base font-medium"
+                      >
+                        <span className="text-white mr-3 mt-0.5">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </BubbleFade>
 
               {/* Reflection */}
               {experience.reflection && (
-                <div className="mt-8 pt-8 border-t border-zinc-800">
-                  <p className="text-zinc-400 italic leading-relaxed font-normal">
-                    {experience.reflection}
-                  </p>
-                </div>
+                <BubbleFade key={`${experience.id}-reflection`} delay={0.35}>
+                  <div className="mt-8 pt-8 border-t border-zinc-800">
+                    <p className="text-zinc-400 italic leading-relaxed font-normal">
+                      {experience.reflection}
+                    </p>
+                  </div>
+                </BubbleFade>
               )}
             </div>
           </section>
