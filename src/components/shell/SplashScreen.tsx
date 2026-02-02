@@ -4,11 +4,14 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useLoading } from "@/components/providers/LoadingProvider";
 import TextReveal from "@/components/animations/TextReveal";
+import { GlitchScreen } from "@/components/animations/GlitchScreen";
 
 export default function SplashScreen() {
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
+  const [showGlitch, setShowGlitch] = useState(false);
+  const [isGlitchFadingOut, setIsGlitchFadingOut] = useState(false);
   const { isLoading, setIsLoading } = useLoading();
 
   useEffect(() => {
@@ -31,23 +34,36 @@ export default function SplashScreen() {
       setVisible(true);
     }, 1200);
 
-    // Start fade-out animation after loading text finishes
+    // Show GlitchScreen right after loading text finishes
+    const showGlitchTimer = setTimeout(() => {
+      setVisible(false); // Hide loading text when glitch appears
+      setShowGlitch(true);
+    }, 4420); // 1200ms delay + 3200ms loading text duration + 20ms
+
+    // Start fade-out animation after GlitchScreen disappears
     const fadeOutTimer = setTimeout(() => {
       setIsFadingOut(true);
-    }, 4400); // 1200ms delay + 3200ms loading text duration
+    }, 5420); // 5420ms (glitch disappears instantly)
 
-    // Hide loading and reveal UI
+    // Start GlitchScreen fade-out after 1 second of play
+    const glitchFadeOutTimer = setTimeout(() => {
+      setIsGlitchFadingOut(true);
+    }, 5420); // 4420ms + 1000ms (1 second)
+
+    // Hide loading and reveal UI after glitch disappears + short delay
     const doneTimer = setTimeout(() => {
       if (typeof window !== "undefined") {
         sessionStorage.setItem("kevos_loaded", "true");
       }
-      setVisible(false);
+      setShowGlitch(false);
       setIsLoading(false);
-    }, 4420); // 4400ms + 20ms delay
+    }, 5720); // 5420ms (glitch disappears) + 300ms (short delay)
 
     return () => {
       clearTimeout(showTimer);
       clearTimeout(fadeOutTimer);
+      clearTimeout(showGlitchTimer);
+      clearTimeout(glitchFadeOutTimer);
       clearTimeout(doneTimer);
     };
   }, [mounted, setIsLoading]);
@@ -71,6 +87,11 @@ export default function SplashScreen() {
             loading
           </span>
         </TextReveal>
+      )}
+      {showGlitch && !isGlitchFadingOut && (
+        <div className="absolute inset-0 w-full h-full z-10">
+          <GlitchScreen />
+        </div>
       )}
     </motion.div>
   );
