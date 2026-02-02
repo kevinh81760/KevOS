@@ -13,6 +13,8 @@ export interface Project {
   type: string;
   /** Project image URL or path */
   image: string;
-  /** File extension for display (e.g., "tsx", "js", "ts") */
+  /** File extension for display (e.g., "exe", "js", "ts") */
   fileExtension: string;
+  /** GitHub repository URL */
+  githubUrl?: string;
 }

@@ -19,13 +19,13 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
   return (
     <div className="h-full flex flex-col min-h-0 overflow-hidden">
       {/* Project Image */}
-      <div className="relative w-full aspect-video overflow-hidden bg-[#111111] mb-6 flex-shrink-0 ml-[55px]">
+      <div className="relative w-full aspect-video overflow-hidden bg-[#111111] mb-6 flex-shrink-0 ml-[55px] h-[550px]">
         {project.image ? (
           <Image
             src={project.image}
             alt={project.name}
             fill
-            className="object-cover"
+            className="object-cover scale-105"
           />
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
@@ -48,8 +48,19 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
         </div>
 
         <div>
-          <h3 className="text-medium text-white/60 uppercase tracking-wide mb-2 font-semibold">Github Link</h3>
-          <p className="text-white text-lg font-medium">{project.type}</p>
+          <h3 className="text-medium text-white/60 uppercase tracking-wide mb-2 font-semibold">Github</h3>
+          {project.githubUrl ? (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white text-lg font-medium hover:text-white/80 underline transition-colors"
+            >
+              {project.githubUrl}
+            </a>
+          ) : (
+            <p className="text-white text-lg font-medium">{project.type}</p>
+          )}
         </div>
       </div>
     </div>
