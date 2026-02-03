@@ -2,21 +2,35 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Player } from "@remotion/player";
 import { useLoading } from "@/components/providers/LoadingProvider";
-import TextReveal from "@/components/animations/TextReveal";
-import { GlitchScreen } from "@/components/animations/GlitchScreen";
+import { LoadingComposition, FPS, DURATION_IN_FRAMES } from "./LoadingComposition";
 
 export default function SplashScreen() {
   const [mounted, setMounted] = useState(false);
-  const [visible, setVisible] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
-  const [showGlitch, setShowGlitch] = useState(false);
-  const [isGlitchFadingOut, setIsGlitchFadingOut] = useState(false);
+  const [dimensions, setDimensions] = useState({ width: 1920, height: 1080 });
   const { isLoading, setIsLoading } = useLoading();
 
   useEffect(() => {
     // Use setTimeout to avoid synchronous setState in effect
     setTimeout(() => setMounted(true), 0);
+  }, []);
+
+  // Get window dimensions for the player
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const updateDimensions = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
   useEffect(() => {
@@ -29,41 +43,25 @@ export default function SplashScreen() {
       return;
     }
 
-    // Brief delay before showing loading text (black screen first)
-    const showTimer = setTimeout(() => {
-      setVisible(true);
-    }, 1200);
+    // Total duration: 195 frames at 30 FPS = 6.5 seconds
+    // Start fade out slightly before the end
+    const totalDurationMs = (DURATION_IN_FRAMES / FPS) * 1000;
 
-    // Show GlitchScreen right after loading text finishes
-    const showGlitchTimer = setTimeout(() => {
-      setVisible(false); // Hide loading text when glitch appears
-      setShowGlitch(true);
-    }, 4420); // 1200ms delay + 3200ms loading text duration + 20ms
-
-    // Start fade-out animation after GlitchScreen disappears
+    // Start fade-out at the end of the animation
     const fadeOutTimer = setTimeout(() => {
       setIsFadingOut(true);
-    }, 5420); // 5420ms (glitch disappears instantly)
+    }, totalDurationMs);
 
-    // Start GlitchScreen fade-out after 1 second of play
-    const glitchFadeOutTimer = setTimeout(() => {
-      setIsGlitchFadingOut(true);
-    }, 5420); // 4420ms + 1000ms (1 second)
-
-    // Hide loading and reveal UI after glitch disappears + short delay
+    // Hide loading and reveal UI after fade completes
     const doneTimer = setTimeout(() => {
       if (typeof window !== "undefined") {
         sessionStorage.setItem("kevos_loaded", "true");
       }
-      setShowGlitch(false);
       setIsLoading(false);
-    }, 5720); // 5420ms (glitch disappears) + 300ms (short delay)
+    }, totalDurationMs + 300); // Add 300ms for fade transition
 
     return () => {
-      clearTimeout(showTimer);
       clearTimeout(fadeOutTimer);
-      clearTimeout(showGlitchTimer);
-      clearTimeout(glitchFadeOutTimer);
       clearTimeout(doneTimer);
     };
   }, [mounted, setIsLoading]);
@@ -77,21 +75,26 @@ export default function SplashScreen() {
       initial={{ opacity: 1 }}
       animate={{ opacity: isFadingOut ? 0 : 1 }}
       transition={{
-        duration: 0.02, // 20ms fade-out duration
+        duration: 0.3,
         ease: "easeOut",
       }}
     >
-      {visible && (
-        <TextReveal direction="up">
-          <span className="text-3xl font-black tracking-tighter uppercase text-white">
-            loading
-          </span>
-        </TextReveal>
-      )}
-      {showGlitch && !isGlitchFadingOut && (
-        <div className="absolute inset-0 w-full h-full z-10">
-          <GlitchScreen />
-        </div>
+      {/* Hide the Player once fade starts to prevent any flash */}
+      {!isFadingOut && (
+        <Player
+          component={LoadingComposition}
+          durationInFrames={DURATION_IN_FRAMES}
+          fps={FPS}
+          compositionWidth={dimensions.width}
+          compositionHeight={dimensions.height}
+          style={{
+            width: "100%",
+            height: "100%",
+          }}
+          autoPlay
+          controls={false}
+          loop={false}
+        />
       )}
     </motion.div>
   );
