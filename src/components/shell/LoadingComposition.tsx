@@ -79,7 +79,7 @@ export const LoadingComposition = () => {
       </Sequence>
 
       {/* Final black screen to prevent any flash at animation end */}
-      <Sequence from={165} durationInFrames={5}>
+      <Sequence from={165} durationInFrames={4}>
         <BlackScreen />
       </Sequence>
     </AbsoluteFill>

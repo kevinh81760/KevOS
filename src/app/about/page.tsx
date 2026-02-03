@@ -7,7 +7,9 @@ export default function GalleryPage() {
       <div className="max-w-7xl mx-auto ml-[87px] mr-[87px]">
         <AboutIntro />
 
-        <PhotoGrid />
+        <div className="mt-100">
+          <PhotoGrid />
+        </div>
       </div>
     </div>
   );
