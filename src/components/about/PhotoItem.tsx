@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import BubbleFade from "@/components/animations/BubbleFade";
 
 interface PhotoItemProps {
   index: number;
@@ -19,21 +20,28 @@ export default function PhotoItem({ index, src }: PhotoItemProps) {
   }
 
   return (
-    <div className="relative aspect-[4/4] overflow-hidden bg-[#111111] transition-colors">
-      {src ? (
-        <Image
-          src={src}
-          alt={`Gallery photo ${index + 1}`}
-          fill
-          className="object-cover"
-          style={imageStyle}
-        />
-      ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
-          <div className="absolute inset-0 bg-zinc-800/50"></div>
-          <span className="text-zinc-500 text-xs uppercase tracking-wide">Photo {index + 1}</span>
-        </div>
-      )}
-    </div>
+    <BubbleFade 
+      scrollTrigger 
+      delay={index * 0.08} 
+      duration={0.9}
+      scaleFrom={0.95}
+    >
+      <div className="relative aspect-[4/4] overflow-hidden bg-[#111111] transition-colors">
+        {src ? (
+          <Image
+            src={src}
+            alt={`Gallery photo ${index + 1}`}
+            fill
+            className="object-cover"
+            style={imageStyle}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
+            <div className="absolute inset-0 bg-zinc-800/50"></div>
+            <span className="text-zinc-500 text-xs uppercase tracking-wide">Photo {index + 1}</span>
+          </div>
+        )}
+      </div>
+    </BubbleFade>
   );
 }
