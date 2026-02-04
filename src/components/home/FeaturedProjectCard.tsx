@@ -38,7 +38,7 @@ export default function FeaturedProjectCard({
   );
 
   return (
-    <BubbleFade delay={delay} duration={1} scrollTrigger={true}>
+    <BubbleFade delay={delay} duration={1} scrollTrigger={true} repeatOnScroll={true}>
       <HoverScale scale={1.02} duration={0.5}>
         {url ? (
           <a

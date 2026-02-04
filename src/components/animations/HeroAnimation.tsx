@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import TextReveal from "./TextReveal";
 import StarIcon from "@/components/icons/StarIcon";
 import { useHasAnimationPlayed } from "@/lib/hooks/useHasAnimationPlayed";
+import ScrollFade from "./ScrollFade";
 
 export default function HeroAnimation() {
   // Synchronously check sessionStorage before first render
@@ -40,22 +41,30 @@ export default function HeroAnimation() {
         animate={{ scale: 1, top: "calc(16px + .25in)", y: 0 }}
         transition={transitionProps}
       >
-        <TextReveal direction="up" duration={0.8} skipAnimation={!shouldAnimate}>
-          <h1 className="text-[8rem] font-bold text-white uppercase tracking-tight">KEVIN HA</h1>
-        </TextReveal>
+        <ScrollFade startFade={100} endFade={260}>
+          <TextReveal direction="up" duration={0.8} skipAnimation={!shouldAnimate}>
+            <h1 className="text-[8rem] font-bold text-white uppercase tracking-tight">KEVIN HA</h1>
+          </TextReveal>
+        </ScrollFade>
       </motion.div>
       <div className="absolute top-[calc(7.5rem+16px+2.5rem+2rem+0.25in)] left-0 w-full flex items-center px-6">
-        <TextReveal delay={2.4} duration={0.4} direction="down" className="translate-x-[calc(1in-10px-50px)]" skipAnimation={!shouldAnimate}>
-          <span className="text-white text-[38px] font-semibold tracking-wide">Product Engineer</span>
-        </TextReveal>
-        <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
-          <TextReveal delay={2.2} duration={0.4} direction="down" skipAnimation={!shouldAnimate}>
-            <StarIcon size={32} />
+        <ScrollFade startFade={140} endFade={310} className="translate-x-[calc(1in-10px-50px)]">
+          <TextReveal delay={2.4} duration={0.4} direction="down" skipAnimation={!shouldAnimate}>
+            <span className="text-white text-[38px] font-semibold tracking-wide">Product Engineer</span>
           </TextReveal>
+        </ScrollFade>
+        <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+          <ScrollFade startFade={140} endFade={310}>
+            <TextReveal delay={2.2} duration={0.4} direction="down" skipAnimation={!shouldAnimate}>
+              <StarIcon size={32} />
+            </TextReveal>
+          </ScrollFade>
         </div>
-        <TextReveal delay={2.4} duration={0.4} className="ml-auto -translate-x-[calc(1in-10px-50px)]" direction="down" skipAnimation={!shouldAnimate}>
-          <span className="text-white text-[38px] font-semibold tracking-wide">San Francisco, CA</span>
-        </TextReveal>
+        <ScrollFade startFade={140} endFade={310} className="ml-auto -translate-x-[calc(1in-10px-50px)]">
+          <TextReveal delay={2.4} duration={0.4} direction="down" skipAnimation={!shouldAnimate}>
+            <span className="text-white text-[38px] font-semibold tracking-wide">San Francisco, CA</span>
+          </TextReveal>
+        </ScrollFade>
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ export default function AboutIntro() {
         <div>
           <ScrollFade startFade={100} endFade={500}>
             <BubbleFade delay={0.1} duration={0.7}>
-              <h2 className="text-4xl font-black text-white tracking-tighter mb-4" style={{ fontWeight: 600, letterSpacing: '-0.01em' }}>ABOUT ME</h2>
+              <h1 className="text-4xl font-black text-white tracking-tighter mb-4" style={{ fontWeight: 600, letterSpacing: '-0.01em', fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>ABOUT ME</h1>
             </BubbleFade>
           </ScrollFade>
           <ScrollFade startFade={100} endFade={500}>

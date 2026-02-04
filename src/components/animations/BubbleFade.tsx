@@ -10,6 +10,7 @@ interface BubbleFadeProps {
   className?: string;
   scaleFrom?: number;
   scrollTrigger?: boolean;
+  repeatOnScroll?: boolean;
 }
 
 export default function BubbleFade({ 
@@ -18,7 +19,8 @@ export default function BubbleFade({
   duration = 0.7,
   className = "",
   scaleFrom = 0.95,
-  scrollTrigger = false
+  scrollTrigger = false,
+  repeatOnScroll = false
 }: BubbleFadeProps) {
   const transition = {
     delay,
@@ -31,7 +33,7 @@ export default function BubbleFade({
       <motion.div
         initial={{ opacity: 0, scale: scaleFrom }}
         whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0, margin: "0px" }}
+        viewport={{ once: !repeatOnScroll, amount: 0, margin: "0px" }}
         transition={transition}
         className={className}
       >

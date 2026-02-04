@@ -12,7 +12,7 @@ export default function GalleryPage() {
 
         <div className="px-2 mb-8 mt-60">
           <BubbleFade scrollTrigger delay={0} duration={0.9} scaleFrom={0.95}>
-            <h1 className="text-4xl font-black text-white tracking-tighter mb-4" style={{ fontWeight: 600, letterSpacing: '-0.01em' }}>
+            <h1 className="text-4xl font-black text-white tracking-tighter mb-4" style={{ fontWeight: 600, letterSpacing: '-0.01em', fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}>
               ARCHIVE
             </h1>
           </BubbleFade>

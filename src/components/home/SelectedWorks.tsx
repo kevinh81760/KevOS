@@ -24,7 +24,7 @@ export default function SelectedWorks() {
 
   return (
     <section className="min-h-[80vh] flex flex-col items-center justify-center px-6 py-20 pt-60 mt-65">
-      <BubbleFade className="text-center mb-24" delay={0} duration={1} scrollTrigger={true}>
+      <BubbleFade className="text-center mb-24" delay={0} duration={1} scrollTrigger={true} repeatOnScroll={true}>
         <h2 className="text-7xl font-black text-white tracking-tighter" style={{ fontWeight: 900, letterSpacing: '-0.05em' }}>
           SELECTED WORKS
         </h2>
@@ -38,14 +38,14 @@ export default function SelectedWorks() {
             description={getProjectDescription(project)}
             image={project.image}
             url={getProjectUrl(project)}
-            delay={0.2 + index * 0.15}
+            delay={0.3 + index * 0.2}
           />
         ))}
       </div>
 
       {/* See all work link */}
       <div className="mt-8">
-        <BubbleFade delay={0.2} duration={1} scrollTrigger={true} scaleFrom={0.98}>
+        <BubbleFade delay={0.1} duration={1} scrollTrigger={true} scaleFrom={0.98} repeatOnScroll={true}>
           <Link href="/projects" className="text-white text-lg font-medium hover:text-zinc-400 transition-colors">
             See all work →
           </Link>
