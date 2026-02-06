@@ -8,9 +8,6 @@ interface ProjectItemProps {
 }
 
 export default function ProjectItem({ name, fileExtension, isSelected, onClick }: ProjectItemProps) {
-  // Remove .exe extension from display name
-  const displayName = name.replace(/\.exe$/, '');
-  
   return (
     <button
       onClick={onClick}
@@ -20,7 +17,7 @@ export default function ProjectItem({ name, fileExtension, isSelected, onClick }
           : "bg-transparent text-white/70 hover:bg-[#1a1a1a] hover:text-white border border-transparent"
       }`}
     >
-      <span className="text-lg font-semibold">{displayName}</span>
+      <span className="text-lg font-semibold">{name}</span>
     </button>
   );
 }

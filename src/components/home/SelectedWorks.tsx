@@ -34,7 +34,7 @@ export default function SelectedWorks() {
         {featuredProjects.map((project, index) => (
           <FeaturedProjectCard
             key={project.id}
-            name={project.name.replace(".exe", "")}
+            name={project.name}
             description={getProjectDescription(project)}
             image={project.image}
             url={getProjectUrl(project)}

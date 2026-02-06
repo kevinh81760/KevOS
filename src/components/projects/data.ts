@@ -9,7 +9,7 @@ import { Project } from "./types";
 export const projects: Project[] = [
   {
     id: "pointpal",
-    name: "PointPal.exe",
+    name: "PointPal",
     description:
       "A travel points platform that helps users find high-value redemptions and plan trips efficiently (500+ users).",
     type: "Github",
@@ -19,7 +19,7 @@ export const projects: Project[] = [
   },
   {
     id: "viral-engine",
-    name: "ViralEngine.exe",
+    name: "ViralEngine",
     description:
       "An internal UGC analytics dashboard that replaced manual tracking and standardized reporting across SaaS apps.",
     type: "Github",
@@ -29,7 +29,7 @@ export const projects: Project[] = [
   },
   {
     id: "notionclone",
-    name: "Atlas.exe",
+    name: "Atlas",
     description:
       "A Notion clone application built with modern web technologies.",
     type: "Github",

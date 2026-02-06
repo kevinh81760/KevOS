@@ -108,22 +108,23 @@ export default function ExperienceContent({
             id={experience.id}
             className="scroll-mt-24"
           >
+            {/* Header Section */}
             <div className="max-w-[1025px] mt-[-2px]">
-              {/* Title */}
               <BubbleFade key={`${experience.id}-title`} delay={0.1}>
                 <h2 className="text-3xl font-semibold text-white tracking-wide mb-3">
                   {experience.title}
                 </h2>
               </BubbleFade>
 
-              {/* Company and Date */}
               <BubbleFade key={`${experience.id}-company`} delay={0.15}>
                 <p className="text-zinc-400 text-base mb-10 font-medium">
                   {experience.company} | {experience.dates}
                 </p>
               </BubbleFade>
+            </div>
 
-              {/* What I Did */}
+            {/* What I Did Section */}
+            <div className="max-w-[1025px] mt-[-2px]">
               <BubbleFade key={`${experience.id}-what`} delay={0.2}>
                 <div className="mb-10">
                   <h3 className="text-lg font-semibold text-white mb-4">
@@ -134,8 +135,10 @@ export default function ExperienceContent({
                   </p>
                 </div>
               </BubbleFade>
+            </div>
 
-              {/* How I Did It */}
+            {/* How I Did It Section */}
+            <div className="max-w-[1025px] mt-[-2px]">
               <BubbleFade key={`${experience.id}-how`} delay={0.25}>
                 <div className="mb-10">
                   <h3 className="text-lg font-semibold text-white mb-4">
@@ -154,8 +157,10 @@ export default function ExperienceContent({
                   </ul>
                 </div>
               </BubbleFade>
+            </div>
 
-              {/* What I Used */}
+            {/* What I Used Section */}
+            <div className="max-w-[1025px] mt-[-2px]">
               <BubbleFade key={`${experience.id}-used`} delay={0.3}>
                 <div className="mb-10">
                   <h3 className="text-lg font-semibold text-white mb-4">
