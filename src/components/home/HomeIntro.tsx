@@ -4,10 +4,10 @@ export default function HomeIntro() {
   return (
     <section className="min-h-[70vh] flex items-center justify-center px-6 pt-90">
       <ScrollFadeInOut 
-        fadeInStart={600} 
-        fadeInEnd={900} 
-        fadeOutStart={1300} 
-        fadeOutEnd={1700} 
+        fadeInStart={0.2} 
+        fadeInEnd={0.4} 
+        fadeOutStart={0.6} 
+        fadeOutEnd={0.8} 
         className="text-center max-w-4xl"
       >
         <p className="text-zinc-100 text-2xl leading-loose tracking-wide font-medium mb-30">
