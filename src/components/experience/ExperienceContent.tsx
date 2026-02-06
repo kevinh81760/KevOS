@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { Experience } from "./types";
 import BubbleFade from "@/components/animations/BubbleFade";
+import { useSnapScroll } from "@/lib/hooks/useSnapScroll";
 
 interface ExperienceContentProps {
   experiences: Experience[];
@@ -15,98 +16,49 @@ export default function ExperienceContent({
   onActiveChange,
   scrollContainerRef,
 }: ExperienceContentProps) {
-  // Use ref to store the latest callback without recreating observer
-  const onActiveChangeRef = useRef(onActiveChange);
-  
+  // Get section IDs for snap scroll hook
+  const sectionIds = experiences.map((exp) => exp.id);
+
+  // Initialize snap scroll with GSAP
+  const { scrollContainerRef: snapScrollRef } = useSnapScroll({
+    sectionIds,
+    onActiveChange,
+  });
+
+  // Merge the refs - use the snap scroll ref but also update the parent ref
   useEffect(() => {
-    onActiveChangeRef.current = onActiveChange;
-  }, [onActiveChange]);
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const sectionElements: { element: HTMLElement; id: string }[] = [];
-
-    // Get all section elements
-    experiences.forEach((exp) => {
-      const element = document.getElementById(exp.id);
-      if (element) {
-        sectionElements.push({ element, id: exp.id });
-      }
-    });
-
-    if (sectionElements.length === 0) return;
-
-    // Track intersection ratios for all sections
-    const intersectionRatios: { [key: string]: number } = {};
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Update ratios for all entries in this callback
-        entries.forEach((entry) => {
-          const id = entry.target.id;
-          intersectionRatios[id] = entry.intersectionRatio;
-        });
-
-        // Find the section with the highest intersection ratio
-        let maxRatio = 0;
-        let mostVisibleId = experiences[0]?.id;
-
-        Object.entries(intersectionRatios).forEach(([id, ratio]) => {
-          if (ratio > maxRatio) {
-            maxRatio = ratio;
-            mostVisibleId = id;
-          }
-        });
-
-        // Only update if we have a valid section with visibility
-        if (mostVisibleId && maxRatio > 0) {
-          onActiveChangeRef.current(mostVisibleId);
-        }
-      },
-      {
-        root: container, // Use content container as root instead of viewport
-        threshold: [0, 0.25, 0.5, 0.75, 1],
-        rootMargin: "-20% 0px -20% 0px", // Only consider middle 60% of container
-      }
-    );
-
-    // Observe all sections
-    sectionElements.forEach(({ element }) => {
-      observer.observe(element);
-    });
-
-    // Set initial active section
-    if (sectionElements.length > 0) {
-      onActiveChangeRef.current(sectionElements[0].id);
+    if (snapScrollRef.current) {
+      // @ts-ignore - Merging refs
+      scrollContainerRef.current = snapScrollRef.current;
     }
-
-    // Cleanup
-    return () => {
-      observer.disconnect();
-    };
-  }, [experiences, scrollContainerRef]);
+  }, [scrollContainerRef, snapScrollRef]);
 
   // Set initial scroll position to 0 on mount
   useEffect(() => {
-    const container = scrollContainerRef.current;
+    const container = snapScrollRef.current;
     if (!container) return;
 
     container.scrollTop = 0;
-  }, [scrollContainerRef]);
+  }, [snapScrollRef]);
 
   return (
     <div
-      ref={scrollContainerRef}
-      className="flex-1 h-full min-h-0 overflow-y-auto scrollbar-hide"
+      ref={snapScrollRef}
+      className="flex-1 h-full min-h-0 overflow-y-auto scrollbar-hide scroll-smooth [scroll-snap-type:y_mandatory]"
+      style={{
+        scrollSnapType: "y mandatory",
+      }}
     >
       <div className="space-y-80 pb-32 pt-12 ml-[0.03in]">
         {experiences.map((experience) => (
           <section
             key={experience.id}
             id={experience.id}
-            className="scroll-mt-24"
+            className="snap-start snap-always"
+            style={{
+              scrollMarginTop: "46px",
+              willChange: "opacity",
+            }}
           >
             {/* Header Section */}
             <div className="max-w-[1025px] mt-[-2px]">

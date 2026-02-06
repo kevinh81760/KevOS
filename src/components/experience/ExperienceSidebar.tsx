@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
+import { gsap } from "gsap";
 import { Experience } from "./types";
 
 interface ExperienceSidebarProps {
@@ -19,6 +19,7 @@ export default function ExperienceSidebar({
   const barHeight = 20; // Height of the white bar
   const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const barRef = useRef<HTMLDivElement | null>(null);
   const isInitialMount = useRef(true);
   
   // Estimate initial position: button height (32px) + spacing (16px) = 48px per item
@@ -26,7 +27,6 @@ export default function ExperienceSidebar({
   // Bar Y is button center - barHeight / 2
   const estimatedInitialY = activeIndex * 48 + 16 - barHeight / 2;
   const [barY, setBarY] = useState(estimatedInitialY);
-  const [hasSetInitialPosition, setHasSetInitialPosition] = useState(false);
 
   // Calculate bar position helper function
   const updateBarPosition = useCallback(() => {
@@ -45,51 +45,55 @@ export default function ExperienceSidebar({
 
   // Set initial position synchronously before paint (no animation)
   useLayoutEffect(() => {
-    if (isInitialMount.current) {
+    if (isInitialMount.current && barRef.current) {
       updateBarPosition();
-      // Use setTimeout to ensure position is set before enabling animations
-      setTimeout(() => {
-        setHasSetInitialPosition(true);
-      }, 0);
+      // Set initial position without animation
+      gsap.set(barRef.current, { y: barY });
       isInitialMount.current = false;
     }
-  }, [updateBarPosition]);
+  }, [updateBarPosition, barY]);
 
-  // Measure actual button positions for accurate alignment on subsequent changes
+  // Animate bar position with retro iPod-style GSAP animation
   useEffect(() => {
-    // Skip on initial mount since useLayoutEffect handles it
-    if (!isInitialMount.current) {
+    if (!isInitialMount.current && barRef.current) {
       updateBarPosition();
+      
+      // iPod-style animation with slight overshoot for retro feel
+      gsap.to(barRef.current, {
+        y: barY,
+        duration: 0.6,
+        ease: "power2.inOut",
+        overwrite: true,
+        onComplete: () => {
+          // Add subtle "bounce back" for retro feedback
+          if (barRef.current) {
+            gsap.to(barRef.current, {
+              y: barY,
+              duration: 0.15,
+              ease: "power1.out",
+            });
+          }
+        },
+      });
     }
 
     // Update on resize
     window.addEventListener("resize", updateBarPosition);
     return () => window.removeEventListener("resize", updateBarPosition);
-  }, [updateBarPosition]);
+  }, [activeIndex, barY, updateBarPosition]);
 
   return (
     <div className="fixed top-[126px] left-[34px] w-64 pr-8 z-10" ref={containerRef}>
       <div className="relative">
-          {/* White bar indicator */}
-          <motion.div
+          {/* White bar indicator with retro iPod-style animation */}
+          <div
+            ref={barRef}
             className="absolute bg-white"
-            initial={{ y: barY }}
-            animate={{
-              y: barY,
-            }}
-            transition={
-              !hasSetInitialPosition
-                ? { duration: 0 }
-                : {
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 30,
-                  }
-            }
             style={{
               left: "0px",
               width: "3px",
               height: `${barHeight}px`,
+              willChange: "transform",
             }}
           />
           
