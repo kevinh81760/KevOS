@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import Shell from "@/components/shell/Shell";
 import { LoadingProvider } from "@/components/providers/LoadingProvider";
@@ -18,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased ${inter.variable}`}
+        className={`antialiased ${inter.variable} ${GeistMono.variable}`}
         style={{
           fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
         }}

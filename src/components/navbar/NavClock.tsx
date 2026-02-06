@@ -28,7 +28,7 @@ export default function NavClock() {
   }, []);
 
   return (
-    <span className="text-[20px] text-neutral-400 font-medium tabular-nums">
+    <span className="text-[20px] text-neutral-400 font-medium tabular-nums font-[family-name:var(--font-geist-mono)]">
       {mounted ? time : ""}
     </span>
   );
