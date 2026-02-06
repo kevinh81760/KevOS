@@ -31,7 +31,7 @@ export default function AboutIntro() {
             <BubbleFade delay={0.3} duration={0.5}>
               <div className="flex items-center gap-2 mb-3">
                 <ChevronRight className="w-4 h-4 text-white" />
-                <h2 className="text-base font-bold text-white tracking-tight font-[family-name:var(--font-geist-mono)]">LINKS</h2>
+                <h2 className="text-base font-bold text-white tracking-tight" style={{ fontFamily: 'Eurostile, sans-serif' }}>LINKS</h2>
               </div>
             </BubbleFade>
           </ScrollFade>

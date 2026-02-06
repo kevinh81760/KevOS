@@ -1,8 +1,61 @@
 @import "tailwindcss";
-/* @import "tw-animate-css"; */ /* Commented out - package not installed */
 
-@theme {
-  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+/* Custom Font Declarations */
+/* Helvetica Neue */
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/fonts/helvetica-neue/HelveticaNeue-Regular.woff2') format('woff2'),
+       url('/fonts/helvetica-neue/HelveticaNeue-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/fonts/helvetica-neue/HelveticaNeue-Medium.woff2') format('woff2'),
+       url('/fonts/helvetica-neue/HelveticaNeue-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/fonts/helvetica-neue/HelveticaNeue-Bold.woff2') format('woff2'),
+       url('/fonts/helvetica-neue/HelveticaNeue-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Akzidenz-Grotesk */
+@font-face {
+  font-family: 'Akzidenz-Grotesk';
+  src: url('/fonts/akzidenz-grotesk/AkzidenzGrotesk-Regular.woff2') format('woff2'),
+       url('/fonts/akzidenz-grotesk/AkzidenzGrotesk-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Akzidenz-Grotesk';
+  src: url('/fonts/akzidenz-grotesk/AkzidenzGrotesk-Medium.woff2') format('woff2'),
+       url('/fonts/akzidenz-grotesk/AkzidenzGrotesk-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bjork */
+@font-face {
+  font-family: 'Bjork';
+  src: url('/fonts/bjork/Bjork-Regular.woff2') format('woff2'),
+       url('/fonts/bjork/Bjork-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* Custom radial gradient utility */
@@ -11,20 +64,20 @@
 }
 
 html {
-  background-color: #0a0a0a !important;
-  min-height: 120vh !important;
-  width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  background-color: #0a0a0a;
+  min-height: 120vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  font-weight: 400 !important;
-  background-color: transparent !important;
-  min-height: 120vh !important;
-  margin: 0 !important;
-  padding: 0 !important;
+  font-family: "Akzidenz-Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  background-color: transparent;
+  min-height: 120vh;
+  margin: 0;
+  padding: 0;
 }
 
 /* Hide scrollbars globally while maintaining scroll functionality */
@@ -48,69 +101,4 @@ body {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
-}
-
-/* Explicitly hide scrollbars on html and body elements */
-html,
-body {
-  /* Firefox */
-  scrollbar-width: none;
-  /* IE and Edge */
-  -ms-overflow-style: none;
-}
-
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  /* Chrome, Safari, Opera */
-  display: none;
-}
-
-/* Glitch effect animations */
-@keyframes glitch-scan {
-  0% {
-    opacity: 0;
-    transform: translateY(0);
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(0);
-  }
-}
-
-@keyframes glitch-distort {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-1px);
-  }
-  75% {
-    transform: translateX(1px);
-  }
-}
-
-/* Digital noise pattern */
-.glitch-noise {
-  background-image: 
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 1px,
-      rgba(255, 255, 255, 0.02) 1px,
-      rgba(255, 255, 255, 0.02) 2px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 1px,
-      rgba(255, 255, 255, 0.01) 1px,
-      rgba(255, 255, 255, 0.01) 2px
-    );
-  mix-blend-mode: screen;
 }

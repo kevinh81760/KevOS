@@ -3,14 +3,12 @@
 import { AbsoluteFill, useCurrentFrame, Sequence } from "remotion";
 import { KevOSTitle } from "@/components/animations/KevOSTitle";
 import { BarcodeGlitch } from "@/components/animations/BarcodeGlitch";
-import { GlitchScreen } from "@/components/animations/GlitchScreen";
 
 // Timeline configuration at 30 FPS:
 // - KevOSTitle: frames 0-30 (1s)
 // - BarcodeGlitch: frames 30-90 (2s)
 // - Loading text: frames 90-120 (1s)
 // - Black screen: frames 120-150 (1s)
-// - GlitchScreen: frames 150-165 (0.5s)
 // - Final black: frames 165-170 (buffer to prevent flash)
 
 export const FPS = 30;

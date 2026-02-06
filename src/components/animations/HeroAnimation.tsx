@@ -50,7 +50,7 @@ export default function HeroAnimation() {
       <div className="absolute top-[calc(7.5rem+16px+2.5rem+2rem+0.25in)] left-0 w-full flex items-center px-6">
         <ScrollFade startFade={140} endFade={310} className="translate-x-[calc(1in-10px-50px)]">
           <TextReveal delay={2.4} duration={0.4} direction="down" skipAnimation={!shouldAnimate}>
-            <span className="text-white text-[38px] font-semibold tracking-wide">Product Engineer</span>
+            <span className="text-white text-[38px] font-semibold tracking-wide" style={{ fontFamily: 'Akzidenz-Grotesk, sans-serif' }}>Product Engineer</span>
           </TextReveal>
         </ScrollFade>
         <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
@@ -62,7 +62,7 @@ export default function HeroAnimation() {
         </div>
         <ScrollFade startFade={140} endFade={310} className="ml-auto -translate-x-[calc(1in-10px-50px)]">
           <TextReveal delay={2.4} duration={0.4} direction="down" skipAnimation={!shouldAnimate}>
-            <span className="text-white text-[38px] font-semibold tracking-wide">San Francisco, CA</span>
+            <span className="text-white text-[38px] font-semibold tracking-wide" style={{ fontFamily: 'Akzidenz-Grotesk, sans-serif' }}>San Francisco, CA</span>
           </TextReveal>
         </ScrollFade>
       </div>

@@ -43,14 +43,14 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
         <BubbleFade key={`${project.id}-name`} delay={0.1}>
           <div>
             <h3 className="text-medium text-white/60 uppercase tracking-wide mb-2 font-semibold">Name</h3>
-            <p className="text-white text-lg font-medium">{project.name}</p>
+            <p className="text-white text-lg font-medium" style={{ fontFamily: "'Akzidenz-Grotesk', sans-serif" }}>{project.name}</p>
           </div>
         </BubbleFade>
 
         <BubbleFade key={`${project.id}-description`} delay={0.2}>
           <div>
             <h3 className="text-medium text-white/60 uppercase tracking-wide mb-2 font-semibold">Description</h3>
-            <p className="text-white text-lg font-medium leading-relaxed">{project.description}</p>
+            <p className="text-white text-lg font-medium leading-relaxed" style={{ fontFamily: "'Akzidenz-Grotesk', sans-serif" }}>{project.description}</p>
           </div>
         </BubbleFade>
 
@@ -63,11 +63,12 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white text-lg font-medium hover:text-white/80 underline transition-colors"
+                style={{ fontFamily: "'Akzidenz-Grotesk', sans-serif" }}
               >
                 {project.githubUrl}
               </a>
             ) : (
-              <p className="text-white text-lg font-medium">{project.type}</p>
+              <p className="text-white text-lg font-medium" style={{ fontFamily: "'Akzidenz-Grotesk', sans-serif" }}>{project.type}</p>
             )}
           </div>
         </BubbleFade>

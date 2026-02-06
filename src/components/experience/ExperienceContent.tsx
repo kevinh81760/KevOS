@@ -117,7 +117,7 @@ export default function ExperienceContent({
               </BubbleFade>
 
               <BubbleFade key={`${experience.id}-company`} delay={0.15}>
-                <p className="text-zinc-400 text-base mb-10 font-medium">
+                <p className="text-zinc-400 text-base mb-10 font-medium" style={{ fontFamily: 'Eurostile, sans-serif' }}>
                   {experience.company} | {experience.dates}
                 </p>
               </BubbleFade>
@@ -130,7 +130,7 @@ export default function ExperienceContent({
                   <h3 className="text-lg font-semibold text-white mb-4">
                     What I Did
                   </h3>
-                  <p className="text-zinc-300 leading-relaxed text-base font-medium">
+                  <p className="text-zinc-300 leading-relaxed text-base font-medium" style={{ fontFamily: "'Akzidenz-Grotesk', sans-serif" }}>
                     {experience.whatIDid}
                   </p>
                 </div>
@@ -151,7 +151,7 @@ export default function ExperienceContent({
                         className="text-zinc-300 leading-relaxed flex items-start text-base font-medium"
                       >
                         <span className="text-white mr-3 mt-0.5">•</span>
-                        <span>{item}</span>
+                        <span style={{ fontFamily: "'Akzidenz-Grotesk', sans-serif" }}>{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -173,7 +173,7 @@ export default function ExperienceContent({
                         className="text-zinc-300 leading-relaxed flex items-start text-base font-medium"
                       >
                         <span className="text-white mr-3 mt-0.5">•</span>
-                        <span>{item}</span>
+                        <span style={{ fontFamily: "'Akzidenz-Grotesk', sans-serif" }}>{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -184,7 +184,7 @@ export default function ExperienceContent({
               {experience.reflection && (
                 <BubbleFade key={`${experience.id}-reflection`} delay={0.35}>
                   <div className="mt-8 pt-8 border-t border-zinc-800">
-                    <p className="text-zinc-400 italic leading-relaxed font-normal">
+                    <p className="text-zinc-400 italic leading-relaxed font-normal" style={{ fontFamily: "'Akzidenz-Grotesk', sans-serif" }}>
                       {experience.reflection}
                     </p>
                   </div>

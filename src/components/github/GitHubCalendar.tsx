@@ -38,8 +38,15 @@ export default function GitHubCalendar({ className = "" }: GitHubCalendarWrapper
     <>
       <style dangerouslySetInnerHTML={{
         __html: `
+          .github-calendar-wrapper svg text {
+            font-family: 'Akzidenz-Grotesk', sans-serif !important;
+          }
           .github-calendar-wrapper svg text[dominant-baseline="hanging"] {
             fill: #a1a1aa !important;
+            font-family: 'Akzidenz-Grotesk', sans-serif !important;
+          }
+          article.react-activity-calendar svg text {
+            font-family: 'Akzidenz-Grotesk', sans-serif !important;
           }
           .github-calendar-wrapper {
             display: flex;
@@ -56,6 +63,18 @@ export default function GitHubCalendar({ className = "" }: GitHubCalendarWrapper
             display: block;
             margin-left: auto;
             margin-right: auto;
+          }
+          .react-activity-calendar__footer .react-activity-calendar__count {
+            font-family: 'Eurostile', sans-serif !important;
+          }
+          .react-activity-calendar__legend-color span {
+            font-family: 'Eurostile', sans-serif !important;
+          }
+          footer.react-activity-calendar__footer span {
+            font-family: 'Eurostile', sans-serif !important;
+          }
+          .github-calendar-wrapper footer span {
+            font-family: 'Eurostile', sans-serif !important;
           }
         `
       }} />

@@ -46,7 +46,7 @@ export default function SelectedWorks() {
       {/* See all work link */}
       <div className="mt-8">
         <BubbleFade delay={0.1} duration={1} scrollTrigger={true} scaleFrom={0.98} repeatOnScroll={true}>
-          <Link href="/projects" className="text-white text-lg font-medium hover:text-zinc-400 transition-colors font-[family-name:var(--font-geist-mono)]">
+          <Link href="/projects" className="text-white text-lg font-medium hover:text-zinc-400 transition-colors" style={{ fontFamily: 'Eurostile, sans-serif' }}>
             See all work →
           </Link>
         </BubbleFade>

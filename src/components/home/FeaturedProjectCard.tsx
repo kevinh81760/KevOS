@@ -32,7 +32,7 @@ export default function FeaturedProjectCard({
       {/* Project Info */}
       <div className="p-6">
         <h3 className="text-2xl font-bold text-white mb-2">{name}</h3>
-        <p className="text-zinc-400 text-sm uppercase tracking-wide font-[family-name:var(--font-geist-mono)]">{description}</p>
+        <p className="text-zinc-400 text-sm uppercase tracking-wide" style={{ fontFamily: 'Eurostile, sans-serif' }}>{description}</p>
       </div>
     </div>
   );

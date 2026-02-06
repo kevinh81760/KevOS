@@ -19,6 +19,7 @@ export default function NavItem({ href, children, active }: NavItemProps) {
           ? "text-white hover:text-white" 
           : "text-zinc-600 hover:text-zinc-400 bg-transparent"
       )}
+      style={{ fontFamily: 'Akzidenz-Grotesk, sans-serif' }}
     >
       {children}
     </Link>

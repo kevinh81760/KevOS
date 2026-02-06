@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import Shell from "@/components/shell/Shell";
 import { LoadingProvider } from "@/components/providers/LoadingProvider";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "KevOS",
@@ -18,11 +14,31 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/akzidenz-grotesk/AkzidenzGrotesk-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/akzidenz-grotesk/AkzidenzGrotesk-Medium.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/helvetica-neue/HelveticaNeue-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
-        className={`antialiased ${inter.variable} ${GeistMono.variable}`}
-        style={{
-          fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-        }}
+        className="antialiased"
         suppressHydrationWarning
       >
         <LoadingProvider>
