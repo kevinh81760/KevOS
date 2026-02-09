@@ -82,7 +82,7 @@ export default function AboutIntro() {
           </ScrollFade>
         </div>
       </div>
-
+    
       {/* Headshot image on the right */}
       <BubbleFade delay={0} duration={0.7} className="shrink-0 w-full md:w-auto flex flex-col">
         <ScrollFade startFade={100} endFade={500}>
