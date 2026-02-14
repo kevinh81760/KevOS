@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { experiences } from "@/components/experience/data";
 import ExperienceSidebar from "@/components/experience/ExperienceSidebar";
 import ExperienceContent from "@/components/experience/ExperienceContent";
+import { LAYOUT } from "@/lib/constants/layout";
 
 export default function ExperiencePage() {
   const [activeExperienceId, setActiveExperienceId] = useState(
@@ -22,10 +23,7 @@ export default function ExperiencePage() {
       const relativeTop = elementRect.top - containerRect.top;
       
       // Calculate offset to align section title with sidebar indicator bar
-      // Sidebar bar is at top-[126px] (126px from viewport top)
-      // Original offset was -24px. To scroll down MORE (title appears lower),
-      // we need to ADD to the scroll position instead of subtracting
-      const sidebarBarTop = 126; // Sidebar bar position from viewport top
+      const sidebarBarTop = LAYOUT.SIDEBAR_TOP;
       const containerTop = containerRect.top; // Container position from viewport top
       const containerPaddingTop = 48; // pt-12 = 48px
       
@@ -58,9 +56,9 @@ export default function ExperiencePage() {
       />
 
       {/* Page container */}
-      <div className="h-[calc(100vh-80px)] overflow-hidden">
-        <div className="h-full max-w-[1800px] mx-auto">
-          <div className="h-full flex pl-[258px] pr-8">
+      <div className="h-[calc(100vh-var(--navbar-height))] overflow-hidden">
+        <div className="h-full max-w-[var(--layout-max-width)] mx-auto">
+          <div className="h-full flex pl-[var(--content-offset-experience)] pr-8">
             {/* Right Content - Scrollable container */}
             <ExperienceContent
               experiences={experiences}

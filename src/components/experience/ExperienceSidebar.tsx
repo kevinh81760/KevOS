@@ -83,7 +83,7 @@ export default function ExperienceSidebar({
   }, [activeIndex, barY, updateBarPosition]);
 
   return (
-    <div className="fixed top-[126px] left-[34px] w-64 pr-8 z-10" ref={containerRef}>
+    <div className="fixed top-[var(--sidebar-top)] left-[var(--sidebar-left)] w-64 pr-8 z-10" ref={containerRef}>
       <div className="relative">
           {/* White bar indicator with retro iPod-style animation */}
           <div

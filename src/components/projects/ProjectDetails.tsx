@@ -20,7 +20,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
   return (
     <div className="h-full flex flex-col min-h-0 overflow-hidden">
       {/* Project Image */}
-      <div className="relative w-full aspect-video overflow-hidden bg-[#111111] mb-6 flex-shrink-0 ml-[55px] h-[550px]">
+      <div className="relative w-full aspect-video overflow-hidden bg-[#111111] mb-6 flex-shrink-0 ml-[var(--project-details-ml)] h-[550px]">
         {project.image ? (
           <BubbleFade key={`${project.id}-image`} className="absolute inset-0">
             <Image
@@ -39,7 +39,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
       </div>
 
       {/* Metadata Section */}
-      <div className="flex flex-col gap-4 overflow-y-auto scrollbar-hide flex-1 min-h-0 ml-[55px]">
+      <div className="flex flex-col gap-4 overflow-y-auto scrollbar-hide flex-1 min-h-0 ml-[var(--project-details-ml)]">
         <BubbleFade key={`${project.id}-name`} delay={0.1}>
           <div>
             <h3 className="text-medium text-white/60 uppercase tracking-wide mb-2 font-semibold">Name</h3>

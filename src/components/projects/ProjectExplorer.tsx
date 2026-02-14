@@ -15,7 +15,7 @@ export default function ProjectExplorer({
   onSelectProject,
 }: ProjectExplorerProps) {
   return (
-    <div className="fixed top-[126px] left-[34px] w-64 pr-8 z-10 h-[calc(100vh-126px)]">
+    <div className="fixed top-[var(--sidebar-top)] left-[var(--sidebar-left)] w-64 pr-8 z-10 h-[calc(100vh-var(--sidebar-top))]">
       <div className="h-full flex flex-col min-h-0">
         <div className="mb-4 flex-shrink-0">
           <h2 className="text-medium text-white/60 uppercase tracking-wide mb-2 font-semibold">Files</h2>

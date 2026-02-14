@@ -49,7 +49,7 @@ export default function ExperienceContent({
         scrollSnapType: "y mandatory",
       }}
     >
-      <div className="space-y-80 pb-32 pt-12 ml-[0.03in]">
+      <div className="space-y-80 pb-32 pt-12">
         {experiences.map((experience) => (
           <section
             key={experience.id}
