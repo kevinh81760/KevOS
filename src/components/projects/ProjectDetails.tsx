@@ -27,7 +27,7 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
               src={project.image}
               alt={project.name}
               fill
-              className="object-cover scale-105"
+              className="object-cover scale-100 object-[center_0%]"
             />
           </BubbleFade>
         ) : (

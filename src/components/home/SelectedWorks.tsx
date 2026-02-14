@@ -19,6 +19,7 @@ export default function SelectedWorks() {
   // Get project URL if available
   const getProjectUrl = (project: typeof projects[0]) => {
     if (project.id === "pointpal") return "https://pointpal.ai";
+    if (project.id === "viral-engine") return "https://www.viralengine.ai/";
     return undefined;
   };
 
