@@ -4,8 +4,8 @@ interface LayoutContainerProps {
 }
 
 /**
- * Wraps page content with max-width 1440px, centered on wider screens.
- * Provides consistent layout for laptop viewport parity.
+ * Wraps page content to a 14" MacBook Pro reference width (1512px max).
+ * Keeps the baseline composition centered on wider screens.
  */
 export default function LayoutContainer({
   children,
@@ -13,7 +13,7 @@ export default function LayoutContainer({
 }: LayoutContainerProps) {
   return (
     <div
-      className={`max-w-[var(--layout-max-width)] mx-auto w-full ${className}`}
+      className={`max-w-(--layout-max-width) mx-auto w-full ${className}`}
     >
       {children}
     </div>

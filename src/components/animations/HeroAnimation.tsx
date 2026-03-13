@@ -43,28 +43,45 @@ export default function HeroAnimation() {
       >
         <ScrollFade startFade={100} endFade={260}>
           <TextReveal direction="up" duration={0.8} skipAnimation={!shouldAnimate}>
-            <h1 className="text-[8rem] font-bold text-white uppercase tracking-tight">KEVIN HA</h1>
+            <h1
+              className="font-bold text-white uppercase tracking-tight"
+              style={{ fontSize: "var(--hero-title-size)" }}
+            >
+              KEVIN HA
+            </h1>
           </TextReveal>
         </ScrollFade>
       </motion.div>
-      <div className="absolute top-[calc(7.5rem+16px+2.5rem+2rem+24px)] left-0 w-full flex items-center px-6">
-        <ScrollFade startFade={140} endFade={310} className="">
-          <TextReveal delay={2.4} duration={0.4} direction="down" skipAnimation={!shouldAnimate}>
-            <span className="text-white text-[38px] font-semibold tracking-wide" style={{ fontFamily: 'Akzidenz-Grotesk, sans-serif' }}>Product Engineer</span>
-          </TextReveal>
-        </ScrollFade>
-        <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
-          <ScrollFade startFade={140} endFade={310}>
-            <TextReveal delay={2.2} duration={0.4} direction="down" skipAnimation={!shouldAnimate}>
-              <StarIcon size={32} />
+      <div className="absolute top-[calc(7.5rem+16px+2.5rem+2rem+24px)] left-0 w-full">
+        <div className="relative mx-auto flex w-(--hero-band-width) items-center">
+          <ScrollFade startFade={140} endFade={310} className="">
+            <TextReveal delay={2.4} duration={0.4} direction="down" skipAnimation={!shouldAnimate}>
+              <span
+                className="text-white font-semibold tracking-wide"
+                style={{ fontFamily: "Akzidenz-Grotesk, sans-serif", fontSize: "var(--hero-meta-size)" }}
+              >
+                Product Engineer
+              </span>
+            </TextReveal>
+          </ScrollFade>
+          <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
+            <ScrollFade startFade={140} endFade={310}>
+              <TextReveal delay={2.2} duration={0.4} direction="down" skipAnimation={!shouldAnimate}>
+                <StarIcon size={32} />
+              </TextReveal>
+            </ScrollFade>
+          </div>
+          <ScrollFade startFade={140} endFade={310} className="ml-auto">
+            <TextReveal delay={2.4} duration={0.4} direction="down" skipAnimation={!shouldAnimate}>
+              <span
+                className="text-white font-semibold tracking-wide"
+                style={{ fontFamily: "Akzidenz-Grotesk, sans-serif", fontSize: "var(--hero-meta-size)" }}
+              >
+                San Francisco, CA
+              </span>
             </TextReveal>
           </ScrollFade>
         </div>
-        <ScrollFade startFade={140} endFade={310} className="ml-auto -translate-x-[calc(96px-96px)]">
-          <TextReveal delay={2.4} duration={0.4} direction="down" skipAnimation={!shouldAnimate}>
-            <span className="text-white text-[38px] font-semibold tracking-wide" style={{ fontFamily: 'Akzidenz-Grotesk, sans-serif' }}>San Francisco, CA</span>
-          </TextReveal>
-        </ScrollFade>
       </div>
     </div>
   );

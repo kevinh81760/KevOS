@@ -22,11 +22,16 @@ export default function Projects() {
       />
 
       {/* Page container */}
-      <div className="fixed inset-0 top-[var(--navbar-height)] overflow-hidden">
-        <div className="h-full max-w-[var(--layout-max-width)] mx-auto">
-          <div className="h-full flex pl-[var(--content-offset-projects)] pr-8">
+      <div className="fixed inset-0 top-(--navbar-height) overflow-hidden">
+        <div className="h-full max-w-(--layout-max-width) mx-auto">
+          <div className="h-full flex pl-(--content-offset-projects) pr-8">
             {/* Right Content - Project Details */}
-            <div className="flex-1 min-w-0 pt-12 h-full flex flex-col overflow-hidden">
+            <div
+              className="flex-1 min-w-0 pt-12 h-full flex flex-col overflow-hidden w-full"
+              style={{
+                maxWidth: "min(100%, calc(980px * var(--layout-scale) + 120px))",
+              }}
+            >
               <ProjectDetails project={selectedProject} />
             </div>
           </div>

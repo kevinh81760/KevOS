@@ -24,7 +24,7 @@ export default function SelectedWorks() {
   };
 
   return (
-    <section className="min-h-[80vh] flex flex-col items-center justify-center px-6 py-20 pt-[var(--spacing-selected-pt)] mt-[var(--spacing-selected-mt)]">
+    <section className="min-h-[80vh] flex flex-col items-center justify-center px-(--content-padding-x) py-20 pt-(--spacing-selected-pt) mt-(--spacing-selected-mt)">
       <BubbleFade className="text-center mb-24" delay={0} duration={1} scrollTrigger={true} repeatOnScroll={true}>
         <h2 className="text-7xl font-black text-white tracking-tighter" style={{ fontWeight: 900, letterSpacing: '-0.05em' }}>
           SELECTED WORKS

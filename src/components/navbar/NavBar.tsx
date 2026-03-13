@@ -26,7 +26,7 @@ export default function NavBar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-6 border-b border-neutral-950 bg-black transition-transform duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-(--content-padding-x) py-[calc(var(--content-padding-x)*0.75)] border-b border-neutral-950 bg-black transition-transform duration-300 ease-in-out ${
         isHidden ? "-translate-y-full" : "translate-y-0"
       }`}
     >

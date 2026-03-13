@@ -56,9 +56,15 @@ export default function ExperiencePage() {
       />
 
       {/* Page container */}
-      <div className="h-[calc(100vh-var(--navbar-height))] overflow-hidden">
-        <div className="h-full max-w-[var(--layout-max-width)] mx-auto">
-          <div className="h-full flex pl-[var(--content-offset-experience)] pr-8">
+      <div className="fixed inset-0 top-(--navbar-height) overflow-hidden">
+        <div className="h-full max-w-(--layout-max-width) mx-auto">
+          <div
+            className="h-full flex pr-8"
+            style={{
+              paddingLeft:
+                "calc(var(--content-offset-projects) - clamp(127px, calc(211px * var(--layout-scale)), 216px))",
+            }}
+          >
             {/* Right Content - Scrollable container */}
             <ExperienceContent
               experiences={experiences}
